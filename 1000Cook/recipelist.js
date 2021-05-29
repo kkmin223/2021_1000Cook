@@ -22,20 +22,3 @@ function list_func(){
     document.getElementsByClassName('Recipe_item')[j].style.margin ="0px";
   }
 }
-
-function OnmouseinItem(elem){
-   if(list_status==0){ //레시피가 블럭형태로 출력
-     elem.style.zoom = 1.05;
-   }
-   else {
-
-   }
-}
-function OnmouseoutItem(elem){
-   if(list_status==0){ //레시피가 블럭형태로 출력
-     elem.style.zoom=1.0;
-   }
-   else {
-
-   }
-}
