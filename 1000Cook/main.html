@@ -2,158 +2,147 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="Viewport" content="width-device-width, initial-scale=1">
+    <meta name="Viewport" user-scalable="no" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main1.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
  		  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
  		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="recipelist.css">
-    <script type="text/javascript" src="recipelist.js"></script>
     <title>1000Cook</title>
     <style>
-      body{
-        background-color:rgb(245, 245, 240);
+    body{
+      background-color:rgb(245, 245, 240);
+    }
+    .z{
+      background-color: white;
+    }
+    .header{
+      background-color: white;
+      height:120px;
+      font:italic;
+
+
+    }
+    .container-fluid{
+        border-bottom:1px solid rgb(29,32,136);
+    }
+    .logo{
+      margin-top:10px;
+    }
+      .header{
+        display: flex;
       }
-      .exp-1,.exp{
-        margin-left:-30px;
-        font-family: 'Itim', cursive;
+      .menu{
+        display:flex;
       }
-      .exp{
-        padding-top:5px;
-      }
-      .exp-1{
-        font-size:40px;
+      .menu-items{
+        padding-left:10px;
+        padding-right:10px;
         font-weight:bold;
+        font-size:20px;
         font:italic;
-
       }
-      .bg-1{
-        background-color:white;
-        padding-left:0px;
-        padding:20px;
-      }
-      .bg-3{
-          background-color:rgb(245, 245, 240);
-      }
-      .bg-2{
-        background-color:powderblue;
-      }
-      .bg3-1{
-        margin-top:10px;
-        background-color:white;
-      }
-      .nav{
-        margin-bottom:0px;
-      }
-      .nav a{
-        color:white;
-        padding:20px;
-        text-decoration:none;
+      .menu-items1{
         font-weight:bold;
-        font-size:15px;
+        font-size:20px;
       }
-      .q{
-      padding-top:18px;
+      .menu-items1 a{
+        color:rgb(29,32,136);
       }
-      .w{
-        padding-top:3px;
+      .menu-items-pic{
+        margin-top:10px;
+        padding-top:25px;
       }
-      #search{
-        width:360px;
-        height:40px;
-        border:solid black;
-        color:black;
+      .menu-items-pic1{
+        padding-top:20px;
+        margin-bottom: 9px;
       }
-      #searches{
-        border:solid black;
-        padding:9.4px;
-        margin-left:-4px;
-        border-left:none;
-        padding-bottom:11.9px;
-        background-color:white;
-        color:black;
+      .menu-items-exp{
       }
+      .menu-items-exp a{
+        text-decoration:none;
+        color:rgb(29,32,136);
+      }
+      .login_reg{
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .log{
+        margin-top:30px;
+        margin-left:20px;
 
+      }
+      .login_reg a{
+        text-decoration: none;
+        color:rgb(29,32,136);
+        font-weight:bold;
+        font-size:14px;
+        font:italic;
+      }
+      .pic{
+        margin-left:-9px;
+      }
+      .button-recipe{
+        background-color:rgb(29,32,136);
+        color:white;
+        padding:10px;
+      }
+      .button-recipe span{
+        text-decoration: none;
+      }
+      .searchs{
+        margin-top:20px;
+        display: flex;
+      }
     </style>
   </head>
   <body>
-    <div class="container-fluid bg-1">
-
-      <row>
-        <div class="col-sm-1">
-      <a href="main.html"><img src="pic\1000Cook.png" width="80px"></a>
-        </div>
-        <div class="col-sm-3 text-left"><div class="exp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;How &nbsp; Why &nbsp; What</div><div class="exp-1">1000Cook</div></div>
-        <div class="col-sm-8 text-right"> </div>
-      </row>
-    </div>
-      <div class="container-fluid bg-2">
-      <div class="container-fluid bg-2-1">
-        <row>
-        <ul class="nav navbar text-center">
-          <li><div class="col-sm-2 q"><a href="Recipe.html">레시피</a></div></li>
-          <li><div class="col-sm-2 q"><a href="#">커뮤니티</a></div></li>
-          <li><div class="col-sm-2 q"><a href="#">마이페이지</a></div></li>
-          <li><div class="col-sm-6 w"><a href="#"><input type="text" id="search" placeholder=" 검색어를 입력해주세요." autofocus;>
-      				<span class="glyphicon glyphicon-search" id="searches"></span></a></div></li>
-        </row>
+    <div class="container-fluid z">
+    <div class=" container header">
+      <div class="logo" style="width:20%">
+        <img src="pic\1000Cook_.png" style="width:75%;">
       </div>
-      </div>
-      <div class="container bg3-1" id ="Recipe_list" style="padding:0px">
-        <div class="container" id="list_btn">
-          <button onclick="block_func()"><span class="glyphicon glyphicon-th-large"></span></button>
-          <button onclick="list_func()"><span class="glyphicon glyphicon-th-list"></span></button>
+      <div class="menu"style="width:60%">
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
         </div>
-        <div class="container" id="Recipe_items">
-          <script>
-            for(var i=1; i<=Recipe_items.length; i++){
-              Recipe_items[i-1] = "Recipe"+i;
-            }
-            for(var j=1; j<=Recipe_items.length;j++){
-              if(j%4==1){
-                document.write('<div class="row recipe_row" >');
-              }
-              document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
-
-              document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="pic/f_195453.jpg"></div>');
-              document.write('<div class="Recipe_info">');
-              document.write('<h2>'+Recipe_items[j-1]+'</h2>');
-              document.write('<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>');
-              document.write('</div>');
-              document.write('</div>');
-              if(j%4==0){
-                document.write('</div>');
-              }
-            }
-          </script>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
+            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
         </div>
       </div>
-
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
-
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyAa-sJYt3uJPUegWCiZ6SHo0B82Hjo8Q9A",
-        authDomain: "cook-fc248.firebaseapp.com",
-        projectId: "cook-fc248",
-        storageBucket: "cook-fc248.appspot.com",
-        messagingSenderId: "846256959255",
-        appId: "1:846256959255:web:bff324d4ec49992eb31152",
-        measurementId: "G-M8G4WCJD4X"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
+      <div class="log"style="width:20%;">
+        <div class="login_reg">
+          <div class="login">
+            <a href="login.html">로그인</a>
+          </div>
+          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+          <div class="register">
+            <a href="register.html">회원가입</a>
+          </div>
+        </div>
+        <div class="pic">
+          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
+        </div>
+        </div>
+       </div>
+     </div>
+     <div class="container searchs">
+       <div class="filter" style="width:15%">z</div>
+       <div class="search"style="width:45%">z</div>
+       <div class="total-recpie"style="width:20%">z</div>
+       <div class="grid"style="width:20%">z</div>
+     </div>
   </body>
 </html>
