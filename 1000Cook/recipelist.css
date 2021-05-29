@@ -1,0 +1,40 @@
+<style>
+  #Recipe_list {
+    border: 2px solid yellow;
+  }
+  .Recipe_item {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+
+  }
+  .Recipe_info {
+    border: 1px solid black;
+    width: 250px;
+
+    background-color:rgb(245, 245, 240);
+    overflow: hidden;
+
+  }
+  .Recipe_img {
+    width: 250px;
+    overflow: hidden;
+  }
+  .Recipe_img:hover .food_img {
+    transform: scale(1.2);
+  }
+/*
+  .Recipe_item:hover {
+    transform: scale(1.1);
+  }
+*/
+  #list_btn {
+    text-align:right;
+    font-size : 20px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+</style>

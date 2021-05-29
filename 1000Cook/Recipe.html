@@ -93,7 +93,7 @@
       <div class="container-fluid bg-2-1">
         <row>
         <ul class="nav navbar text-center">
-          <li><div class="col-sm-2 q"><a href="Recipe.html">레시피</a></div></li>
+          <li><div class="col-sm-2 q"><a href="#">레시피</a></div></li>
           <li><div class="col-sm-2 q"><a href="#">커뮤니티</a></div></li>
           <li><div class="col-sm-2 q"><a href="#">마이페이지</a></div></li>
           <li><div class="col-sm-6 w"><a href="#"><input type="text" id="search" placeholder=" 검색어를 입력해주세요." autofocus;>
@@ -111,22 +111,16 @@
             for(var i=1; i<=Recipe_items.length; i++){
               Recipe_items[i-1] = "Recipe"+i;
             }
-            for(var j=1; j<=Recipe_items.length;j++){
-              if(j%4==1){
-                document.write('<div class="row recipe_row" >');
-              }
+            Recipe_items.map(function(v,i){
               document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
-
               document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="pic/f_195453.jpg"></div>');
               document.write('<div class="Recipe_info">');
               document.write('<h2>'+Recipe_items[j-1]+'</h2>');
               document.write('<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>');
               document.write('</div>');
               document.write('</div>');
-              if(j%4==0){
-                document.write('</div>');
-              }
-            }
+            })
+            
           </script>
         </div>
       </div>
