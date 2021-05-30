@@ -36,5 +36,11 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  #index_number {
 
+  }
+  #index {
+    text-align: center;
+    margin: 5px;
+  }
 </style>

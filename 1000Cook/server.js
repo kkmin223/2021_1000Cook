@@ -1,25 +1,18 @@
- const express = require('express');
- const app =express();
- app.set('view engine', 'ejs');
- app.set('views', './views');
- var mysql      = require('mysql');
- var db = mysql.createConnection({
-   host     : 'localhost',
-   user     : 'root',
-   password : 'ss99223!',
-   database : 'web_recipe'
- });
-db.connect();
+var http = require('http');
+var url = require('url');
 
- app.listen(8080, function(){
-   console.log('listenting on 8080')
- });
+function start(route, handle) {
+  function onRequest(req,res){
+    var pathname = url.parse(req.url).pathname;
+    console.log('request for' + pathname + "received");
 
- app.get('/', function(req,res){
-   res.sendFile(__dirname+'/main.html')
- });
+    route(handle, pathname, res);
 
- app.get('/recipe', function(req,res){
-   res.sendFile(__dirname+'/Recipe.html')
-   
- });
+    res.writeHead(200, {'Content-Type' : 'text/plain'});
+    res.end();
+  }
+  http.createServer(onRequest).listen(8888);
+  console.log('server has started.');
+}
+
+exports.start = start;
