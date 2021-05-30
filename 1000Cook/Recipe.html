@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,103 +13,57 @@
     <script type="text/javascript" src="recipelist.js"></script>
     <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
     <title>1000Cook</title>
-    <style>
-      body{
-        background-color:rgb(245, 245, 240);
-      }
-      .exp-1,.exp{
-        margin-left:-30px;
-        font-family: 'Itim', cursive;
-      }
-      .exp{
-        padding-top:5px;
-      }
-      .exp-1{
-        font-size:40px;
-        font-weight:bold;
-        font:italic;
-
-      }
-      .bg-1{
-        background-color:white;
-        padding-left:0px;
-        padding:20px;
-      }
-      .bg-3{
-          background-color:rgb(245, 245, 240);
-      }
-      .bg-2{
-        background-color:powderblue;
-      }
-      .bg3-1{
-        margin-top:10px;
-        background-color:white;
-      }
-      .nav{
-        margin-bottom:0px;
-      }
-      .nav a{
-        color:white;
-        padding:20px;
-        text-decoration:none;
-        font-weight:bold;
-        font-size:15px;
-      }
-      .q{
-      padding-top:18px;
-      }
-      .w{
-        padding-top:3px;
-      }
-      #search{
-        width:360px;
-        height:40px;
-        border:solid black;
-        color:black;
-      }
-      #searches{
-        border:solid black;
-        padding:9.4px;
-        margin-left:-4px;
-        border-left:none;
-        padding-bottom:11.9px;
-        background-color:white;
-        color:black;
-      }
-
-    </style>
   </head>
   <body>
-    <div class="container-fluid bg-1">
-
-      <row>
-        <div class="col-sm-1">
-      <a href="main.html"><img src="pic\1000Cook.png" width="80px"></a>
+    <div class="container-fluid z">
+    <div class=" container header">
+      <div class="logo" style="width:20%">
+        <img src="pic\1000Cook_.png" style="width:75%;">
+      </div>
+      <div class="menu"style="width:60%">
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
         </div>
-        <div class="col-sm-3 text-left"><div class="exp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;How &nbsp; Why &nbsp; What</div><div class="exp-1">1000Cook</div></div>
-        <div class="col-sm-8 text-right"> </div>
-      </row>
-    </div>
-      <div class="container-fluid bg-2">
-      <div class="container-fluid bg-2-1">
-        <row>
-        <ul class="nav navbar text-center">
-          <li><div class="col-sm-2 q"><a href="#">레시피</a></div></li>
-          <li><div class="col-sm-2 q"><a href="#">커뮤니티</a></div></li>
-          <li><div class="col-sm-2 q"><a href="#">마이페이지</a></div></li>
-          <li><div class="col-sm-6 w"><a href="#"><input type="text" id="search" placeholder=" 검색어를 입력해주세요." autofocus;>
-      				<span class="glyphicon glyphicon-search" id="searches"></span></a></div></li>
-        </row>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
+            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
+        </div>
       </div>
-      </div>
+      <div class="log"style="width:20%;">
+        <div class="login_reg">
+          <div class="login">
+            <a href="login.html">로그인</a>
+          </div>
+          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+          <div class="register">
+            <a href="register.html">회원가입</a>
+          </div>
+        </div>
+        <div class="pic">
+          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
+        </div>
+        </div>
+       </div>
+     </div>
+
       <div class="container bg3-1" id ="Recipe_list" style="padding:0px">
         <div class="container" id="list_btn">
-          <button onclick="block_func()"><span class="glyphicon glyphicon-th-large"></span></button>
-          <button onclick="list_func()"><span class="glyphicon glyphicon-th-list"></span></button>
+          <a href="Recipe.html"><span class="glyphicon glyphicon-th-large"></span></a>
+          <a href="recipe-grid.html"><span class="glyphicon glyphicon-th-list"></span></a>
         </div>
         <div class="container" id="Recipe_items">
           <script>
-
+          var a = info.length/60;
+          var b = info.map.length % 60;
           info.map(function(v,i){
               document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
               document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
@@ -118,34 +73,21 @@
               document.write('</div>');
               document.write('</div>');
             })
-
+          document.write('</div>')
+          document.write('<div class="container bg3-1" id ="index" style="padding:0px">')
+          if(b==0){
+            for(var i=1;i<=a;i++){
+              document.write('<a href="#" id="index">'+i+'</a>');
+            }
+          }
+          else {
+            for(var i=1;i<=a+1;i++){
+              document.write('<a href="Recipe?index='+i+'" id="index">'+i+'</a>');
+            }
+          }
+          document.write('</div>');
           </script>
-        </div>
       </div>
-
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
-
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyAa-sJYt3uJPUegWCiZ6SHo0B82Hjo8Q9A",
-        authDomain: "cook-fc248.firebaseapp.com",
-        projectId: "cook-fc248",
-        storageBucket: "cook-fc248.appspot.com",
-        messagingSenderId: "846256959255",
-        appId: "1:846256959255:web:bff324d4ec49992eb31152",
-        measurementId: "G-M8G4WCJD4X"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
     </script>
   </body>
 </html>
