@@ -1,0 +1,133 @@
+.information{
+  display: flex;
+  height:50px;
+  align-items: center;
+  margin-top:10px;
+}
+.container{
+  background-color: white;
+  border-radius: 10px;
+}
+.informations{
+  margin-top:10px;
+  margin-left:0px;
+  display: flex;
+  height:400px;
+}
+.informations-pic{
+  width:50%;
+  height:100%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+
+}
+
+.informations-must{
+  width:50%;
+  height:100%;
+}
+.information-recipe-ingredient{
+  width:100%;
+  height:300px;
+  margin-top:10px;
+}
+.information-recipe-process{
+  width:100%;
+  height:auto;
+  margin-top:10px;
+}
+.information-name{
+  width:80%;
+}
+.commend{
+  width:20%;
+  text-align:right;
+}
+.information-recipe-explain{
+height:60%;
+margin-top:auto;
+margin-bottom: auto;
+padding-top:15px;
+}
+.b{
+  padding:15px;
+  font-weight: bold;
+}
+.information-recipe-ingredient{
+
+}
+.title_ing{
+  padding-top:10px;
+  font-size:20px;
+  font-weight: bold;
+  text-align: center;
+}
+.information-recipe-ingredients{
+  display: flex;
+}
+.information-recipe-ingredient-1{
+  padding-left:100px;
+  width:50%;
+}
+.information-recipe-ingredient-1-1{
+  padding-top:10px;
+  font-size:15px;
+  text-align: center;
+}
+.information-recipe-ingredient-2-1{
+  padding-top:10px;
+  font-size:15px;
+  text-align: center;
+}
+.information-recipe-ingredient-2{
+  width:50%;
+}
+.ingredient{
+  padding:10px;
+  margin-left:100px;
+  width:60%;
+  display: flex;
+  border-bottom:1px solid darkgray;
+}
+.ingredient_name{
+  width:80%;
+}
+.ingredient_how{
+  text-align:right;
+  width:20%;
+}
+.how-to-make_title{
+  padding-top:10px;
+  font-size:20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.how-to-make{
+  border-radius: 300px;
+  margin-top:20px;
+  display: flex;
+  background-color: rgb(199,231,230);
+}
+.how-to-make_pic{
+
+  border-radius: 300px;
+  padding-top:40px;
+  width:50%;
+  background-color: rgb(199,231,230);
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.how-to-make_exp{
+  width:50%;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.how-to-make-explanation{
+  font-size:18px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  padding-top:10px;
+}
