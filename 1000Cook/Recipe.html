@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="Viewport" content="width-device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,6 +10,7 @@
  		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="recipelist.css">
     <script type="text/javascript" src="recipelist.js"></script>
+    <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
     <title>1000Cook</title>
     <style>
       body{
@@ -108,15 +108,13 @@
         </div>
         <div class="container" id="Recipe_items">
           <script>
-            for(var i=1; i<=Recipe_items.length; i++){
-              Recipe_items[i-1] = "Recipe"+i;
-            }
-            Recipe_items.map(function(v,i){
+
+          info.map(function(v,i){
               document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
-              document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="pic/f_195453.jpg"></div>');
+              document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
               document.write('<div class="Recipe_info">');
-              document.write('<h2>'+v+'</h2>');
-              document.write('<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>');
+              document.write('<h2>'+v['recipe_name']+'</h2>');
+              document.write('<p>'+v['recipe_intro']+' </p>');
               document.write('</div>');
               document.write('</div>');
             })
