@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta name="Viewport" user-scalable="no" content="width-device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main1.css">
+    <link rel="stylesheet" type="text/css" href="recipelist.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
- 		  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <script type="text/javascript" src="recipelist.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
  		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>1000Cook</title>
@@ -138,12 +140,30 @@
         </div>
        </div>
      </div>
-     <div class="container searchs">
-       <div class="filter" style="width:15%">z</div>
-       <div class="search"style="width:45%">z</div>
-       <div class="total-recpie"style="width:20%">z</div>
-       <div class="grid"style="width:20%">z</div>
-     </div>
 
+         <div class="container bg3-1" id ="Recipe_list" >
+           <div class="container" id="list_btn">
+             <button onclick="block_func()"><span class="glyphicon glyphicon-th-large"></span></button>
+             <button onclick="list_func()"><span class="glyphicon glyphicon-th-list"></span></button>
+           </div>
+           <div class="container" id="Recipe_items">
+             <script>
+               for(var i=1; i<=Recipe_items.length; i++){
+                 Recipe_items[i-1] = "Recipe"+i;
+               }
+               Recipe_items.map(function(v,i){
+                 document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
+                 document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="pic/f_195453.jpg"></div>');
+                 document.write('<div class="Recipe_info">');
+                 document.write('<h2>'+v+'</h2>');
+                 document.write('<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>');
+                 document.write('</div>');
+                 document.write('</div>');
+               })
+
+             </script>
+           </div>
+
+     </div>
   </body>
 </html>
