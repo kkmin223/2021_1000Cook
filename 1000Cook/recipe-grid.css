@@ -1,0 +1,45 @@
+.recipe-lists{
+  display: flex;
+  align-items: center;
+  height:200px;
+}
+#first{
+  margin-top:0px;
+}
+.recipe-list{
+}
+
+.recipe-lists{
+  margin-top:50px;
+  background-color: white;
+}
+.recipe-list-pic{
+  width:20%;
+  height:100%;
+}
+.recipe-list-con{
+  width:55%;
+  text-align: center;
+}
+.recipe_name,.recipe_ing,.recipe_time{
+  font-weight: bold;
+}
+.recipe-others{
+  width:25%;
+  display: flex;
+}
+.recipe-others1{
+  width:50%;
+}
+
+.recipe-others2{
+  width:50%;
+}
+.recipe_much,.recipe_kind,.recipe_time,.recipe_diff,.recipe_how,.recipe_good{
+    font-weight: bold;
+    text-align: center;
+}
+.recipe_much_data,.recipe_kind_data,.recipe_time_data,.recipe_diff_data,.recipe_good_data,.recipe_how_data{
+
+    text-align: center;
+}

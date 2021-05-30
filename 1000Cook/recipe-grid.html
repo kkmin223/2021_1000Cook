@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="Viewport" user-scalable="no" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main1.css">
+    <link rel="stylesheet" type="text/css" href="recipelist.css">
+    <link rel="stylesheet" type="text/css" href="recipe-grid.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script type="text/javascript" src="recipelist.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+ 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>1000Cook</title>
+    <style>
+    body{
+      background-color:rgb(245, 245, 240);
+    }
+    .z{
+      background-color: white;
+    }
+    .header{
+      background-color: white;
+      height:120px;
+      font:italic;
+
+
+    }
+    .container-fluid{
+        border-bottom:1px solid rgb(29,32,136);
+    }
+    .logo{
+      margin-top:10px;
+    }
+      .header{
+        display: flex;
+      }
+      .menu{
+        display:flex;
+      }
+      .menu-items{
+        padding-left:10px;
+        padding-right:10px;
+        font-weight:bold;
+        font-size:20px;
+        font:italic;
+      }
+      .menu-items1{
+        font-weight:bold;
+        font-size:20px;
+      }
+      .menu-items1 a{
+        color:rgb(29,32,136);
+      }
+      .menu-items-pic{
+        margin-top:10px;
+        padding-top:25px;
+      }
+      .menu-items-pic1{
+        padding-top:20px;
+        margin-bottom: 9px;
+      }
+      .menu-items-exp{
+      }
+      .menu-items-exp a{
+        text-decoration:none;
+        color:rgb(29,32,136);
+      }
+      .login_reg{
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .log{
+        margin-top:30px;
+        margin-left:20px;
+
+      }
+      .login_reg a{
+        text-decoration: none;
+        color:rgb(29,32,136);
+        font-weight:bold;
+        font-size:14px;
+        font:italic;
+      }
+      .pic{
+        margin-left:-9px;
+      }
+      .button-recipe{
+        background-color:rgb(29,32,136);
+        color:white;
+        padding:10px;
+      }
+      .button-recipe span{
+        text-decoration: none;
+      }
+      .searchs{
+        margin-top:20px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid z">
+    <div class=" container header">
+      <div class="logo" style="width:20%">
+        <img src="pic\1000Cook_.png" style="width:75%;">
+      </div>
+      <div class="menu"style="width:60%">
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
+            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
+        </div>
+      </div>
+      <div class="log"style="width:20%;">
+        <div class="login_reg">
+          <div class="login">
+            <a href="login.html">로그인</a>
+          </div>
+          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+          <div class="register">
+            <a href="register.html">회원가입</a>
+          </div>
+        </div>
+        <div class="pic">
+          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
+        </div>
+        </div>
+       </div>
+     </div>
+     <div class="container recipe-list">
+       <div class="container" id="list_btn">
+         <button onclick="block_func()"><span class="glyphicon glyphicon-th-large"></span></button>
+         <button onclick="list_func()"><span class="glyphicon glyphicon-th-list"></span></button>
+       </div>
+       <div class="recipe-lists" id="first">
+         <div class="recipe-list-pic">
+           <img src="pic\1000Cook.png" style="height:100%">
+        </div>
+         <div class="recipe-list-con">
+           <p class="recipe_name">요리이름</p>
+           <p class="recipe_name_data">김치찌개</p>
+           <p class=recipe_time>재료</p>
+           <p class="recipe_name_data">김치찌개</p>
+         </div>
+         <div class="recipe-others">
+           <div class="recipe-others1">
+           <p class="recipe_kind">종류</p>
+           <p class="recipe_kind_data">한식/일식/양식/중식</p>
+           <p class=recipe_time>조리시간</p>
+           <p class="recipe_time_data">5분</p>
+           <p class=recipe_how>방식</p>
+           <p class="recipe_how_data">튀김/부침/찜</p>
+         </div>
+         <div class="recipe-others2">
+           <p class="recipe_much">기준</p>
+           <p class="recipe_much_data">3인분</p>
+           <p class=recipe_diff>난이도</p>
+           <p class="recipe_diff_data">@@</p>
+           <p class=recipe_good>추천수</p>
+           <p class="recipe_good_data">2</p>
+         </div>
+       </div>
+       </div>
+       <div class="recipe-lists">
+         <div class="recipe-list-pic">
+           <img src="pic\1000Cook.png" style="height:100%">
+        </div>
+         <div class="recipe-list-con">
+           <p id="recipe_name">요리이름</p>
+           <p id="recipe_ing">재료</p>
+           <p id=recipe_time>시간</p>
+         </div>
+       </div>
+       <div class="recipe-lists">
+         <div class="recipe-list-pic">
+           <img src="pic\1000Cook.png" style="height:100%">
+        </div>
+         <div class="recipe-list-con" >
+           <p id="recipe_name">요리이름</p>
+           <p id="recipe_ing">재료</p>
+           <p id=recipe_time>시간</p>
+         </div>
+       </div>
+       <div class="recipe-lists">
+         <div class="recipe-list-pic">
+           <img src="pic\1000Cook.png" style="height:100%">
+        </div>
+         <div class="recipe-list-con">
+           <p id="recipe_name">요리이름</p>
+           <p id="recipe_ing">재료</p>
+           <p id=recipe_time>시간</p>
+         </div>
+         <div class="recipe-list-con" >
+           <p id="recipe_name">요리이름</p>
+           <p id="recipe_ing">재료</p>
+           <p id=recipe_time>시간</p>
+         </div>
+       </div>
+       <div class="recipe-lists">
+         <div class="recipe-list-pic">
+           <img src="pic\1000Cook.png" style="height:100%">
+        </div>
+         <div class="recipe-list-con" >
+           <p class="recipe_name">요리이름</p>
+           <p class="recipe_ing">재료</p>
+           <p class=recipe_time>시간</p>
+         </div>
+       </div>
+     </div>
+
+
+  </body>
+</html>
