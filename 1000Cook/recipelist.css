@@ -2,27 +2,42 @@
   #Recipe_list {
     border: 2px solid yellow;
   }
+  #Recipe_items{
+    display: flex;
+    flex-wrap: wrap;
+  }
   .Recipe_item {
+    border-radius: 10px;
     text-align: center;
     margin-top: 15px;
     margin-bottom: 15px;
-    flex-wrap: wrap;
+    padding-right:30px;
 
   }
   .Recipe_info {
-    border: 1px solid black;
     width: 250px;
-
+    height:50%;
     background-color:rgb(245, 245, 240);
     overflow: hidden;
+    border-radius: 10px;
 
+  }
+  .food_img{
+    position: top:0; left: 0;
+    width: 100%;
+    height: 100%;
+
+      border-radius: 10px;
   }
   .Recipe_img {
     width: 250px;
+    height:177px;
     overflow: hidden;
   }
+  .
   .Recipe_img:hover .food_img {
     transform: scale(1.2);
+
   }
 
   .Recipe_item:hover {

@@ -6,9 +6,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
- 		  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
- 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="recipelist.css">
     <script type="text/javascript" src="recipelist.js"></script>
     <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
@@ -65,7 +65,7 @@
           var a = info.length/60;
           var b = info.map.length % 60;
           info.map(function(v,i){
-              document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
+              document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
               document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
               document.write('<div class="Recipe_info">');
               document.write('<h2>'+v['recipe_name']+'</h2>');

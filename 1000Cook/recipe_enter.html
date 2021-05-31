@@ -2,17 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="Viewport" user-scalable="no" content="width-device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="main1.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="recipelist.css">
     <link rel="stylesheet" type="text/css" href="recipe_enter.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      <script type="text/javascript" src="recipelist.js"></script>
       <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
  		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
+      <script type="text/javascript" src="recipe_data\recipe_material.json"></script>
+      <script type="text/javascript" src="recipe_data\recipe_order.json"></script>
     <title>1000Cook</title>
     <style>
     body{
@@ -141,105 +142,107 @@
         </div>
        </div>
      </div>
-     <div class="container information" >
-       <div class="information-name">김치찌개</div>
-       <div class="commend">
-         <button type="buton">추천</button>
-       </div>
-     </div>
+    <script>
+    var path_name = window.location.pathname;
+    var length = path_name.length;
+    var r_code = Number(path_name.substring(13,length));
+    info.map((v,i)=>{
+      if(v['recipe_code']==r_code){
+        document.write(`<div class="container information" >`);
+        document.write(`<div class="information-name">${v['recipe_name']}</div>`);
+        document.write(`<div class="commend">`);
+        document.write(`<button type="buton">추천</button>`);
+        document.write(`</div>`);
+        document.write(`</div>`);
 
-     <div class="container informations" style="padding:0px; background-color:rgb(245, 245, 240)">
-       <div class="container informations-pic" style="margin-right:10px;">
-         <img src="pic\1000Cook_.png" style="height:90%; width:90%;" class="recipe_img">
-       </div>
-       <div class="container informations-must">
-         <div class="container information-recipe-explain" style="width:100%;">
-           <div class=" b information-recipe-explain-kind">종류:</div>
-           <div class=" b information-recipe-explain-how">방식:</div>
-           <div class=" b information-recipe-explain-time">조리시간:</div>
-           <div class=" b information-recipe-explain-much">기준:</div>
-           <div class=" b information-recipe-explain-diff">난이도:</div>
-           <div class=" b information-recipe-explain-commend">추천수:</div>
-           <div class=" b information-recipe-explain-define">정의:</div>
-       </div>
-     </div>
-   </div>
-     <div class="container information-recipe-ingredient">
-       <div class="title_ing">재료</div>
+        document.write(`<div class="container informations" style="padding:0px; background-color:rgb(245, 245, 240)">`);
+        document.write(`<div class="container informations-pic" style="margin-right:10px;">`);
+        document.write(`<img src=${v['imge_url']} style="height:90%; width:90%;" class="recipe_img">`);
+        document.write(`</div>`);
 
-       <div class="information-recipe-ingredients">
-         <div class="information-recipe-ingredient-1">
-           <div class="information-recipe-ingredient-1-1">(재료)</div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-         </div>
-         <div class="information-recipe-ingredient-2">
-           <div class="information-recipe-ingredient-2-1">(양념)</div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-           <div class="ingredient">
-              <div class="ingredient_name">감자</div>
-              <div class="ingredient_how">2개</div>
-           </div>
-         </div>
-       </div>
-     </div>
-     <div class="container information-recipe-process">
-       <div class="how-to-make_title">조리과정</div>
-       <div class="how-to-make">
-       <div class="container how-to-make_pic">
-       <img src="pic\1000Cook_.png" style="width:80%; height:80%;"></div>
-       <div class="container how-to-make_exp" style="margin-right:10px;">
-         <div class="how-to-make-explanation">
-            <p>감자를 씻습니다.<p>
-         </div>
+        document.write(`<div class="container informations-must">`);
+        document.write(`<div class="container information-recipe-explain" style="width:100%;">`);
+        document.write(`<div class=" b information-recipe-explain-kind">종류: ${v['type_name']}</div>`);
+        document.write(`<div class=" b information-recipe-explain-how">방식: ${v['food_type']}</div>`);
+        document.write(`<div class=" b information-recipe-explain-time">조리시간: ${v['cooktime']}</div>`);
+        document.write(`<div class=" b information-recipe-explain-much">분량: ${v['amount']}</div>`);
+        document.write(`<div class=" b information-recipe-explain-diff">난이도: ${v['difficulty']}</div>`);
+        document.write(`<div class=" b information-recipe-explain-commend">추천수: ${v['rec_cnt']}</div>`);
+        document.write(`<div class=" b information-recipe-explain-define">정의:</div>`);
+        document.write(`</div>`);
+        document.write(`</div>`);
+        document.write(`</div>`);
+      }
+    });
+    document.write(`<div class="container information-recipe-ingredient">`);
+    document.write(`<div class="title_ing">재료</div>`);
 
-       </div>
-     </div>
-     <div class="how-to-make">
-     <div class="container how-to-make_pic">
-     <img src="pic\1000Cook_.png" style="width:80%; height:80%;"></div>
-     <div class="container how-to-make_exp" style="margin-right:10px;">
-       <div class="how-to-make-explanation">
-          <p>감자를 씻습니다.<p>
-       </div>
+    document.write(`<div class="information-recipe-ingredients">`);
+    document.write(`<div class="information-recipe-ingredient-1">`);
+    document.write(`<div class="information-recipe-ingredient-1-1">(재료)</div>`);
+    material.map((v,i)=>{
+      if(v['recipe_code']==r_code && v['Material_type']== "주재료"){
+        document.write(`<div class="ingredient">`);
+        document.write(`<div class="ingredient_name">${v['Material_name']}</div>`);
+        document.write(`<div class="ingredient_how">${v['Material_amount']}</div>`);
+        document.write(`</div>`);
+      }
+    });
+    document.write(`</div>`);
 
-     </div>
-   </div> <div class="how-to-make">
-    <div class="container how-to-make_pic">
-    <img src="pic\1000Cook_.png" style="width:80%; height:80%;"></div>
-    <div class="container how-to-make_exp" style="margin-right:10px;">
-      <div class="how-to-make-explanation">
-         <p>감자를 씻습니다.<p>
-      </div>
+    document.write(` <div class="information-recipe-ingredient-2">`);
+    document.write(`<div class="information-recipe-ingredient-2-1">(양념)</div>`);
 
-    </div>
-  </div>
-     </div>
+    material.map((v,i)=>{
+      if(v['recipe_code']==r_code && (v['Material_type']== "양념"||v['Material_type']== "부재료")){
+        document.write(`<div class="ingredient">`);
+        document.write(`<div class="ingredient_name">${v['Material_name']}</div>`);
+        document.write(`<div class="ingredient_how">${v['Material_amount']}</div>`);
+        document.write(`</div>`);
+      }
+    });
+    document.write(`</div>`);
+    document.write(`</div>`);
 
+    document.write(`<div class="container information-recipe-process">`);
+    document.write(` <div class="how-to-make_title">조리과정</div>`);
+    function orderSort(a, b) { if(a.cook_order == b.cook_order){ return 0} return a.cook_order > b.cook_order ? 1 : -1; }
+    order.sort(orderSort);
+    order.map((v,i)=>{
+      var img = "pic/1000Cook_.png";
+      if(v['recipe_code']==r_code){
+        document.write(`<div class="how-to-make">`);
+        document.write(`<div class="container how-to-make_pic">`);
+        if(v['order_image']!="null"){
+          img = v['order_image'];
+        }
+        document.write(`<img src=${img} style="width:80%; height:80%;">`);
+        document.write(`</div>`);
+        document.write(`<div class="container how-to-make_exp" style="margin-right:10px;">`);
+        document.write(`<div class="how-to-make-explanation">`);
+        document.write(`<p>${v['cook_order']}. ${v['order_description']}<p>`);
+        document.write(`</div>`);
+        document.write(`</div>`);
+        document.write(`</div>`);
+      }
+    });
+
+
+
+   //   <div class="container information-recipe-process">
+   //     <div class="how-to-make_title">조리과정</div>
+   //     <div class="how-to-make">
+   //     <div class="container how-to-make_pic">
+   //     <img src="pic\1000Cook_.png" style="width:80%; height:80%;"></div>
+   //     <div class="container how-to-make_exp" style="margin-right:10px;">
+   //       <div class="how-to-make-explanation">
+   //          <p>감자를 씻습니다.<p>
+   //       </div>
+   //     </div>
+   //   </div>
+
+
+   //   </div>
+  </script>
   </body>
 </html>
