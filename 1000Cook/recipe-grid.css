@@ -1,21 +1,29 @@
+body{
+background-color:rgb(245, 245, 240);
+}
+
 .recipe-lists{
   display: flex;
   align-items: center;
   height:200px;
+  margin-bottom:60px;
 }
 #first{
   margin-top:0px;
 }
-.recipe-list{
+#list_btn{
+  margin-right: 0px;
 }
-
 .recipe-lists{
-  margin-top:50px;
-  background-color: white;
+  background-color: rgb(245, 245, 240);
+  border-radius: 50px;
 }
 .recipe-list-pic{
-  width:20%;
+  width:30%;
   height:100%;
+}
+.recipe-list-pic img{
+  border-radius: 30px;
 }
 .recipe-list-con{
   width:55%;

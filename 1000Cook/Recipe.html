@@ -65,7 +65,7 @@
           var a = info.length/60;
           var b = info.map.length % 60;
           info.map(function(v,i){
-              document.write('<div class="col-sm-3 Recipe_item" onmouseover="OnmouseinItem(this)" onmouseout= "OnmouseoutItem(this)">');
+              document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter.html'">`);
               document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
               document.write('<div class="Recipe_info">');
               document.write('<h2>'+v['recipe_name']+'</h2>');
