@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="recipelist.css">
     <link rel="stylesheet" type="text/css" href="recipe-grid.css">
+    <link rel="stylesheet" type="text/css" href="recipe_kind.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,58 +13,67 @@
  		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
+      <script type="text/javascript" src="recipe_data\material_index.json"></script>
     <title>1000Cook</title>
   </head>
   <body>
     <div class="container-fluid z">
-    <div class=" container header">
-      <div class="logo" style="width:20%">
-        <img src="pic\1000Cook_.png" style="width:75%;">
-      </div>
-      <div class="menu"style="width:60%">
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
+<div class=" container header">
+  <div class="logo" style="width:20%">
+    <img src="pic\1000Cook_.png" style="width:75%;">
+  </div>
+  <div class="menu"style="width:60%">
+    <div class="menu-items"style="width:20%;">
+      <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">종류별</a></div>
+    </div>
+    <div class="menu-items"style="width:20%;">
+      <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">재료별</a></div>
+    </div>
+    <div class="menu-items"style="width:20%;">
+        <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
+        <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">방법별</a></div>
+    </div>
+    <div class="menu-items"style="width:20%;">
+      <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
+    </div>
+  </div>
+   </div>
+ </div>
+ <!-- 재료선택 -->
+ <div class="container Kind_recipe">
+   <div class="Kind_recipe_menu">
+     <script>
+      function select(idx){
+        let ingredient = document.getElementsByClassName('ingrdients')[idx].innerHTML;
+        alert(ingredient);
+      }
+      index.map(function(v,i){
+        document.write(`<div class="recipe_kind_item_" onclick="select('${i}')">`);
+        document.write('<div class="kind-item_info">');
+        document.write('<h2 style="margin-top:6px;" class="ingrdients">'+v['name']+'</h2>');
+        document.write('</div>');
+        document.write('</div>');
+      });
+      document.write('</div>');
+      document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
+      document.write('</div>');
+      </script>
+   </div>
+ <!-- 레시피 출력형태 변경 -->
+      <div class="container bg3-1" id ="Recipe_list" style="padding:0px">
+        <div class="container" id="list_btn">
+          <a href="/Recipe"><span class="glyphicon glyphicon-th-large"></span></a>
+          <a href="/recipe-grid"><span class="glyphicon glyphicon-th-list"></span></a>
         </div>
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
-            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
-        </div>
-      </div>
-      <div class="log"style="width:20%;">
-        <div class="login_reg">
-          <div class="login">
-            <a href="login.html">로그인</a>
-          </div>
-          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
-          <div class="register">
-            <a href="register.html">회원가입</a>
-          </div>
-        </div>
-        <div class="pic">
-          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
-        </div>
-        </div>
-       </div>
-     </div>
+        <div class="container" id="Recipe_items">
 
-     <div class="container recipe-list">
-       <div class="container" id="list_btn">
-         <a href="Recipe.html"><span class="glyphicon glyphicon-th-large"></span></a>
-         <a href="recipe-grid.html"><span class="glyphicon glyphicon-th-list"></span></a>
-       </div>
-
+ <!-- 레시피 출력 -->
          <script>
           info.map(function(v,i){
-            document.write(`<div class="recipe-lists" onclick="location.href='recipe_enter.html'">`);
+            document.write(`<div class="recipe-lists" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
             document.write('<div class="recipe-list-pic">');
             document.write('<img src="'+v['imge_url']+'" style="height:100%">');
             document.write('</div>');
