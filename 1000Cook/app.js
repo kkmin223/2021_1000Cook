@@ -24,11 +24,19 @@ server.get("/recipe-grid", (req,res)=>{
 
 server.use((req,res)=> {
   var str = "/recipe_enter";
+  var str2 = "/Recipe";
   if(req.url.indexOf(str)!=-1){
     var _url = req.url;
     var length = _url.length;
     var r_code = _url.substring(13,length);
     res.sendFile(__dirname+str+".html");
+  }
+  else if(req.url.indexOf(str2)!=-1){
+    var _url = req.url;
+    var length = _url.length;
+    var idx = _url.substring(7,length);
+    console.log(idx);
+    res.sendFile(__dirname+str2+".html");
   }
   else{
     res.sendFile(__dirname+"/404.html");

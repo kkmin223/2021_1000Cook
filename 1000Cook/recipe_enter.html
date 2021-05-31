@@ -146,12 +146,18 @@
     var path_name = window.location.pathname;
     var length = path_name.length;
     var r_code = Number(path_name.substring(13,length));
+    //r_code = 120476;
+    function recommend(){
+      v['rec_cnt']++;
+    }
+
+
     info.map((v,i)=>{
       if(v['recipe_code']==r_code){
         document.write(`<div class="container information" >`);
         document.write(`<div class="information-name">${v['recipe_name']}</div>`);
         document.write(`<div class="commend">`);
-        document.write(`<button type="buton">추천</button>`);
+        document.write(`<button type="buton" id="recommend">추천</button>`);
         document.write(`</div>`);
         document.write(`</div>`);
 
@@ -229,20 +235,6 @@
 
 
 
-   //   <div class="container information-recipe-process">
-   //     <div class="how-to-make_title">조리과정</div>
-   //     <div class="how-to-make">
-   //     <div class="container how-to-make_pic">
-   //     <img src="pic\1000Cook_.png" style="width:80%; height:80%;"></div>
-   //     <div class="container how-to-make_exp" style="margin-right:10px;">
-   //       <div class="how-to-make-explanation">
-   //          <p>감자를 씻습니다.<p>
-   //       </div>
-   //     </div>
-   //   </div>
-
-
-   //   </div>
   </script>
   </body>
 </html>
