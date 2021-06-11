@@ -209,8 +209,11 @@
     });
     document.write(`</div>`);
     document.write(`</div>`);
+    
+    document.write(`</div>`);
 
     document.write(`<div class="container information-recipe-process">`);
+
     document.write(` <div class="how-to-make_title">조리과정</div>`);
     function orderSort(a, b) { if(a.cook_order == b.cook_order){ return 0} return a.cook_order > b.cook_order ? 1 : -1; }
     order.sort(orderSort);

@@ -10,15 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
- 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
       <script type="text/javascript" src="recipe_data\material_index.json"></script>
     <title>1000Cook</title>
   </head>
   <body>
     <div class="container-fluid z">
-<div class=" container header">
+<div class=" container header" id="header">
   <div class="logo" style="width:20%">
     <img src="pic\1000Cook_.png" style="width:75%;">
   </div>
@@ -32,12 +32,12 @@
       <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">재료별</a></div>
     </div>
     <div class="menu-items"style="width:20%;">
-        <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
+        <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30%  "></div>
         <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">방법별</a></div>
     </div>
     <div class="menu-items"style="width:20%;">
-      <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
-      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
+      <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\statistic.png" style="width:30%; padding-top:-5px; "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">통계</a></div>
     </div>
   </div>
    </div>
@@ -46,10 +46,23 @@
  <div class="container Kind_recipe">
    <div class="Kind_recipe_menu">
      <script>
-      function select(idx){
-        let ingredient = document.getElementsByClassName('ingrdients')[idx].innerHTML;
-        alert(ingredient);
-      }
+        let sum=new Array(80);
+
+       for(let i=0; i<80; i++){sum[i]=0;}
+
+        function select(idx){
+          let ingredient = document.getElementsByClassName('ingrdients')[idx].innerHTML;
+          if(sum[idx]==0){
+            document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="yellow";
+            sum[idx]=1;
+          }
+          else{
+           document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="white";
+           sum[idx]=0;
+          }
+        }
+
+
       index.map(function(v,i){
         document.write(`<div class="recipe_kind_item_" onclick="select('${i}')">`);
         document.write('<div class="kind-item_info">');
@@ -57,56 +70,120 @@
         document.write('</div>');
         document.write('</div>');
       });
+      document.write(`<div class="mix">`);
+      document.write(`<button type="button" class="mix_button ">`);
+      document.write(`선택 완료`);
+      document.write(`</button>`);
+      document.write(`</div>`)
       document.write('</div>');
       document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
       document.write('</div>');
       </script>
    </div>
- <!-- 레시피 출력형태 변경 -->
+ <!-- 레시피 출력형태 변환 -->
       <div class="container bg3-1" id ="Recipe_list" style="padding:0px">
         <div class="container" id="list_btn">
           <a href="/Recipe"><span class="glyphicon glyphicon-th-large"></span></a>
           <a href="/recipe-grid"><span class="glyphicon glyphicon-th-list"></span></a>
         </div>
-        <div class="container" id="Recipe_items">
+        <div class="fixed-button">
+          <div class="fixed-button-top">
+            <a href="#header">Top</a>
+          </div>
+          <div class="fixed-button-bottom">
+          <a href="#footer">Bottom</a>
+          </div>
+        </div>
 
- <!-- 레시피 출력 -->
-         <script>
+<!-- 레시피 출력 -->
+  <div class="container" id="Recipe_items">
+      <script>
+          var path_name = window.location.pathname;
+          var length = path_name.length;
+          var idx=  path_name.substring(12,length);
+          var a = info.length/15;
+          var b = info.map.length % 15;
+
           info.map(function(v,i){
-            document.write(`<div class="recipe-lists" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
-            document.write('<div class="recipe-list-pic">');
-            document.write('<img src="'+v['imge_url']+'" style="height:100%">');
-            document.write('</div>');
-            document.write('<div class="recipe-list-con">');
-            document.write('<p class="recipe_name">요리이름</p>');
-            document.write('<p class="recipe_name_data">'+v['recipe_name']+'</p>');
-            document.write('<p class=recipe_time>설명</p>');
-            document.write('<p class="recipe_name_data">'+v['recipe_intro']+'</p>');
-            document.write('</div>');
+            if(i>=(idx-1)*15&&i<idx*15){
+              document.write(`<div class="recipe-lists" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
+              document.write('<div class="recipe-list-pic">');
+              document.write('<img src="'+v['imge_url']+'" style="width:100%; height:100%">');
+              document.write('</div>');
+              document.write('<div class="recipe-list-con">');
+              document.write('<p class="recipe_name">요리이름</p>');
+              document.write('<p class="recipe_name_data">'+v['recipe_name']+'</p>');
+              document.write('<p class=recipe_time>설명</p>');
+              document.write('<p class="recipe_name_data">'+v['recipe_intro']+'</p>');
+              document.write('</div>');
 
-            document.write('<div class="recipe-others">');
-            document.write('<div class="recipe-others1">');
-            document.write('<p class="recipe_kind">종류</p>');
-            document.write('<p class="recipe_kind_data">'+v['type_name']+'</p>');
-            document.write('<p class=recipe_time>조리시간</p>');
-            document.write('<p class="recipe_time_data">'+v['cooktime']+'</p>');
-            document.write('<p class=recipe_how>방식</p>');
-            document.write('<p class="recipe_how_data">'+v['food_type'] +'</p>');
-            document.write('</div>');
+              document.write('<div class="recipe-others">');
+              document.write('<div class="recipe-others1">');
+              document.write('<p class="recipe_kind">종류</p>');
+              document.write('<p class="recipe_kind_data">'+v['type_name']+'</p>');
+              document.write('<p class=recipe_time>조리시간</p>');
+              document.write('<p class="recipe_time_data">'+v['cooktime']+'</p>');
+              document.write('<p class=recipe_how>방식</p>');
+              document.write('<p class="recipe_how_data">'+v['food_type'] +'</p>');
+              document.write('</div>');
 
-            document.write('<div class="recipe-others2">');
-            document.write('<p class="recipe_much">기준</p>');
-            document.write('<p class="recipe_much_data">'+v['amount']+'</p>');
-            document.write('<p class=recipe_diff>난이도</p>');
-            document.write('<p class="recipe_diff_data">'+v['difficulty']+'</p>');
-            document.write('<p class=recipe_good>추천수</p>');
-            document.write('<p class="recipe_good_data">'+v['rec_cnt']+'</p>');
-            document.write('</div>');
+              document.write('<div class="recipe-others2">');
+              document.write('<p class="recipe_much">기준</p>');
+              document.write('<p class="recipe_much_data">'+v['amount']+'</p>');
+              document.write('<p class=recipe_diff>난이도</p>');
+              document.write('<p class="recipe_diff_data">'+v['difficulty']+'</p>');
+              document.write('<p class=recipe_good>추천수</p>');
+              document.write('<p class="recipe_good_data">'+v['rec_cnt']+'</p>');
+              document.write('</div>');
+              document.write('</div>');
+              document.write('</div>');
+            }
+            else if(idx==0&&i>=0&&i<15) {
+              document.write(`<div class="recipe-lists" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
+              document.write('<div class="recipe-list-pic">');
+              document.write('<img src="'+v['imge_url']+'" style="width:100%;height:100%">');
+              document.write('</div>');
+              document.write('<div class="recipe-list-con">');
+              document.write('<p class="recipe_name">요리이름</p>');
+              document.write('<p class="recipe_name_data">'+v['recipe_name']+'</p>');
+              document.write('<p class=recipe_time>설명</p>');
+              document.write('<p class="recipe_name_data">'+v['recipe_intro']+'</p>');
+              document.write('</div>');
 
-            document.write('</div>');
-            document.write('</div>');
+              document.write('<div class="recipe-others">');
+              document.write('<div class="recipe-others1">');
+              document.write('<p class="recipe_kind">종류</p>');
+              document.write('<p class="recipe_kind_data">'+v['type_name']+'</p>');
+              document.write('<p class=recipe_time>조리시간</p>');
+              document.write('<p class="recipe_time_data">'+v['cooktime']+'</p>');
+              document.write('<p class=recipe_how>방식</p>');
+              document.write('<p class="recipe_how_data">'+v['food_type'] +'</p>');
+              document.write('</div>');
 
+              document.write('<div class="recipe-others2">');
+              document.write('<p class="recipe_much">기준</p>');
+              document.write('<p class="recipe_much_data">'+v['amount']+'</p>');
+              document.write('<p class=recipe_diff>난이도</p>');
+              document.write('<p class="recipe_diff_data">'+v['difficulty']+'</p>');
+              document.write('<p class=recipe_good>추천수</p>');
+              document.write('<p class="recipe_good_data">'+v['rec_cnt']+'</p>');
+              document.write('</div>');
+              document.write('</div>');
+              document.write('</div>');
+            }
           });
+          document.write('<div class="container bg3-1" id ="index" style="padding:0px">')
+          if(b==0){
+            for(var i=1;i<=a;i++){
+              document.write('<a href="recipe-grid'+i+'" id="index">'+i+'</a>');
+            }
+          }
+          else {
+            for(var i=1;i<=a+1;i++){
+              document.write('<a href="recipe-grid'+i+'" id="index">'+i+'</a>');
+            }
+          }
+          document.write('</div>');
        </script>
      </div>
 

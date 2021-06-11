@@ -29,8 +29,9 @@
 }
 .information-recipe-ingredient{
   width:100%;
-  height:300px;
+  height:auto;
   margin-top:10px;
+  padding-bottom:20px;
 }
 .information-recipe-process{
   width:100%;
@@ -64,6 +65,7 @@ padding-top:15px;
   text-align: center;
 }
 .information-recipe-ingredients{
+
   display: flex;
 }
 .information-recipe-ingredient-1{
@@ -108,14 +110,12 @@ padding-top:15px;
   border-radius: 300px;
   margin-top:20px;
   display: flex;
-  background-color: rgb(199,231,230);
 }
 .how-to-make_pic{
 
   border-radius: 300px;
   padding-top:40px;
   width:50%;
-  background-color: rgb(199,231,230);
   margin-top:auto;
   margin-bottom:auto;
 }
