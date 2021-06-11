@@ -14,22 +14,14 @@
     padding-right:30px;
 
   }
-
   .Recipe_info {
     width: 250px;
     height:50%;
     background-color:rgb(245, 245, 240);
     overflow: hidden;
-<<<<<<< HEAD
-      border-radius: 10px;
-
-  }
-
-=======
     border-radius: 10px;
 
   }
->>>>>>> main
   .food_img{
     position: top:0; left: 0;
     width: 100%;
@@ -37,14 +29,6 @@
 
       border-radius: 10px;
   }
-<<<<<<< HEAD
-  .Recipe_img {
-    width: 250px;
-    height:177px;
-    overflow: hidden;
-  }
-=======
->>>>>>> main
   .Recipe_img {
     width: 250px;
     height:177px;
