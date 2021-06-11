@@ -121,126 +121,172 @@ keyboard : true
 });
 </script>
 
- <!-- 재료선택 -->
- <div class="container Kind_recipe" id="kinds">
-   <div class="Kind_recipe_menu">
-     <script>
-      let sum=new Array(80);
-
-
-       for(let i=0; i<80; i++){sum[i]=0;}
-
-
-        function select1(idx){
-
-          if(sum[idx]==0){
-            document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="yellow";
-            sum[idx]=1;
-          }
-          else{
-           document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="white";
-           sum[idx]=0;
-          }
-        }
-
-        kind.map(function(v,i){
-          document.write(`<div class="recipe_kind_item_" onclick="select1('${i}')">`);
-          document.write('<div class="kind-item_info">');
-          document.write('<h2 style="margin-top:6px;" class="kind_">'+v['kind']+'</h2>');
-          document.write('</div>');
-          document.write('</div>');
-        });
-
-      document.write(`<div class="mix">`);
-      document.write(`<button type="button" class="mix_button ">`);
-      document.write(`선택 완료`);
-      document.write(`</button>`);
-      document.write(`</div>`)
-      document.write('</div>');
-      document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
-      document.write('</div>');
-
-      </script>
-   </div>
-   <div class="container Kind_recipe" id="materials">
-     <div class="Kind_recipe_menu">
-       <script>
-
-       let sum1=new Array(80);
-         for(let i=0; i<80; i++){sum1[i]=0;}
-
-
-          function select2(idx){
-
-            if(sum1[idx]==0){
-              document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="yellow";
-              sum1[idx]=1;
-            }
-            else{
-             document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="white";
-             sum1[idx]=0;
-            }
-          }
-
-          index.map(function(v,i){
-       document.write(`<div class="recipe_kind_item_1" onclick="select2('${i}')">`);
-       document.write('<div class="kind-item_info">');
-       document.write('<h2 style="margin-top:6px;" class="ingrdients1">'+v['name']+'</h2>');
-       document.write('</div>');
-       document.write('</div>');
-     });
-
-        document.write(`<div class="mix">`);
-        document.write(`<button type="button" class="mix_button ">`);
-        document.write(`선택 완료`);
-        document.write(`</button>`);
-        document.write(`</div>`)
-        document.write('</div>');
-        document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
-        document.write('</div>');
-
-        </script>
-     </div>
-     <div class="container Kind_recipe" id="hows">
-       <div class="Kind_recipe_menu">
-         <script>
-
-          let sum2=new Array(80);
-           for(let i=0; i<80; i++){sum2[i]=0;}
-
-
-            function select3(idx){
-
-
-              if(sum2[idx]==0){
-                document.getElementsByClassName('recipe_kind_item2_')[idx].style.backgroundColor="yellow";
-                sum2[idx]=1;
-              }
-              else{
-               document.getElementsByClassName('recipe_kind_item2_')[idx].style.backgroundColor="white";
-               sum2[idx]=0;
-              }
-            }
-
-          how.map(function(v,i){
-         document.write(`<div class="recipe_kind_item2_" onclick="select3('${i}')">`);
+<!-- 재료선택 -->
+<div class="container Kind_recipe" id="kinds">
+  <div class="Kind_recipe_menu">
+    <script>
+    <!--음식종류 -->
+     let sum=new Array(80);
+     let cnt = 0;
+     let result="";
+      for(let i=0; i<80; i++){sum[i]=0;}
+       function select1(idx){
+         if(sum[idx]==0){
+           if(cnt!=0){
+             alert("1개만 선택해주세요");
+             return 0;
+           }
+           document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="yellow";
+           cnt=1;
+           sum[idx]=1;
+         }
+         else{
+          document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="white";
+          sum[idx]=0;
+          cnt=0;
+         }
+       }
+       function kindselect(){
+         if(cnt==0){
+           alert("하나만 선택해주세요!");
+         }
+         else {
+           for(let i=0;i<7;i++){
+             if(sum[i]==1){
+               result= document.getElementsByClassName('kind_')[i].innerHTML
+               break;
+             }
+           }
+           alert(result);
+           location.href="Recipe"+"knd"+result;
+         }
+       }
+       kind.map(function(v,i){
+         document.write(`<div class="recipe_kind_item_" onclick="select1('${i}')">`);
          document.write('<div class="kind-item_info">');
-         document.write('<h2 style="margin-top:6px;" class="ingrdients2">'+v['how']+'</h2>');
+         document.write('<h2 style="margin-top:6px;" class="kind_">'+v['kind']+'</h2>');
          document.write('</div>');
          document.write('</div>');
        });
+     document.write(`<div class="mix">`);
+     document.write(`<button type="button" class="mix_button" onclick="kindselect()">`);
+     document.write(`선택 완료`);
+     document.write(`</button>`);
+     document.write(`</div>`)
+     document.write('</div>');
+     document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
+     document.write('</div>');
+     </script>
+  </div>
+  <div class="container Kind_recipe" id="materials">
+    <div class="Kind_recipe_menu">
+      <script>
+       <!--재료 -->
+       let sum1=new Array(80);
+       let cnt1 = 0;
+       let result1="";
+       for(let i=0; i<80; i++){sum1[i]=0;}
+         function select2(idx){
+               if(sum[idx]==0){
+                 if(cnt1>2){
+                   alert("최대 3개까지 선택가능합니다.");
+                   return 0;
+                 }
+                 document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="yellow";
+                 sum1[idx]=1;
+                 cnt1++;
+               }
+             else{
+               document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="white";
+               sum1[idx]=0;
+               cnt1--;
+             }
+         }
+         function ingredientselect(){
+           if(cnt1==0){
+             alert("재료를 선택해주세요!");
+           }
+           else {
 
-          document.write(`<div class="mixs">`);
-          document.write(`<button type="button" class="mix_button ">`);
-          document.write(`선택 완료`);
-          document.write(`</button>`);
-          document.write(`</div>`)
-          document.write('</div>');
-          document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
-          document.write('</div>');
-
-          </script>
-       </div>
+           for(let i=0; i<80;i++){
+             if(sum1[i]==1){
+               result1 += document.getElementsByClassName('ingrdients1')[i].innerHTML;
+               result1 +="|";
+             }
+           }
+           result1=result1.slice(0,-1);
+           alert(result1);
+           location.href="Recipe"+"ing"+result1;
+     }
+   }
+       index.map(function(v,i){
+      document.write(`<div class="recipe_kind_item_1" onclick="select2('${i}')">`);
+      document.write('<div class="kind-item_info">');
+      document.write('<h2 style="margin-top:6px;" class="ingrdients1">'+v['name']+'</h2>');
+      document.write('</div>');
+      document.write('</div>');
+    });
+       document.write(`<div class="mix">`);
+       document.write(`<button type="button" class="mix_button" onclick="ingredientselect()">`);
+       document.write(`선택 완료`);
+       document.write(`</button>`);
+       document.write(`</div>`)
+       document.write('</div>');
+       document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
+       document.write('</div>');
+       </script>
+    </div>
+    <div class="container Kind_recipe" id="hows">
+      <div class="Kind_recipe_menu">
+        <script>
+        <!--방식 -->
+         let sum2=new Array(80);
+         let cnt2 = 0;
+         let result2="";
+          for(let i=0; i<80; i++){sum2[i]=0;}
+           function select3(idx){
+             if(sum2[idx]==0){
+               if(cnt2==1){
+                 alert("하나만 선택해주세요");
+                 return 0;
+               }
+               document.getElementsByClassName('recipe_kind_item2_')[idx].style.backgroundColor="yellow";
+               sum2[idx]=1;
+               cnt2=1;
+             }
+             else{
+              document.getElementsByClassName('recipe_kind_item2_')[idx].style.backgroundColor="white";
+              sum2[idx]=0;
+              cnt2=0;
+             }
+           }
+           function selecthow(){
+             for(let i=0;i<21;i++){
+               if(sum2[i]==1){
+                 result2=  document.getElementsByClassName('ingrdients2')[i].innerHTML;
+                 break;
+               }
+             }
+             alert(result2);
+             location.href="Recipe"+"how"+result2;
+           }
+         how.map(function(v,i){
+        document.write(`<div class="recipe_kind_item2_" onclick="select3('${i}')">`);
+        document.write('<div class="kind-item_info">');
+        document.write('<h2 style="margin-top:6px;" class="ingrdients2">'+v['how']+'</h2>');
+        document.write('</div>');
+        document.write('</div>');
+      });
+         document.write(`<div class="mixs">`);
+         document.write(`<button type="button" class="mix_button" onclick="selecthow()">`);
+         document.write(`선택 완료`);
+         document.write(`</button>`);
+         document.write(`</div>`)
+         document.write('</div>');
+         document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
+         document.write('</div>');
+         </script>
+      </div>
  <!-- 레시피 출력형태 변환 -->
       <div class="container bg3-1" id ="Recipe_list" style="padding:0px">
         <div class="container" id="list_btn">
