@@ -10,22 +10,29 @@
 }
 
 .recipe-lists{
+
   margin-top:50px;
-  background-color: white;
+  background-color: rgb(245, 245, 240);
+  border-radius: 30px;
 }
 .recipe-list-pic{
-  width:20%;
+  width:300px;
   height:100%;
 }
+.recipe-list-pic img{
+  border-radius: 30px;
+
+}
 .recipe-list-con{
-  width:55%;
+  width:600px;
   text-align: center;
 }
 .recipe_name,.recipe_ing,.recipe_time{
   font-weight: bold;
 }
+
 .recipe-others{
-  width:25%;
+  width:200px;%;
   display: flex;
 }
 .recipe-others1{
@@ -42,4 +49,37 @@
 .recipe_much_data,.recipe_kind_data,.recipe_time_data,.recipe_diff_data,.recipe_good_data,.recipe_how_data{
 
     text-align: center;
+}
+.mix{
+  width:740px;
+  margin-top:30px;
+  text-align: right;
+}
+.mix_button{
+  border-radius: 20px;
+  padding-top:10px;
+  padding-bottom:10px;
+  background-color: white;
+
+}
+.fixed-button{
+  display: inline-flex;
+  flex-direction: column;
+  position: fixed;
+  left:1400px;
+}
+.fixed-button-top,.fixed-button-bottom{
+
+  background-color:rgb(245, 245, 240);
+  text-align:center;
+  padding:10px;
+}
+.fixed-button-top a,.fixed-button-bottom a{
+  text-decoration: none;
+  color:black;
+}
+.mixs{
+  width:1040px;
+  margin-top:30px;
+  text-align: right;
 }
