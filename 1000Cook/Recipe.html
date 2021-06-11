@@ -86,7 +86,7 @@
          }
         result=result.slice(0,-1);
          alert(result);
-         location.href="Recipe"+result;
+         location.href="Recipe"+"ing"+result;
        }
      }
       index.map(function(v,i){
@@ -124,7 +124,8 @@
           var a = info.length/60;
           var b = info.map.length % 60;
           if(isNaN(input)){
-            var ing = decodeURI(input).split("|");
+            var temp = decodeURI(input).substring(3, decodeURI(input).length);
+            var ing = temp.split("|");
             material.map(function(v,i){
               for(var i=0; i<3;i++){
                 if(ing[i]==null) break;

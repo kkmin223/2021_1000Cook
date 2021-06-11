@@ -185,7 +185,7 @@
 
     document.write(`<div class="information-recipe-ingredients">`);
     document.write(`<div class="information-recipe-ingredient-1">`);
-    document.write(`<div class="information-recipe-ingredient-1-1">(재료)</div>`);
+    document.write(`<div class="information-recipe-ingredient-1-1">(주재료)</div>`);
     material.map((v,i)=>{
       if(v['recipe_code']==r_code && v['Material_type']== "주재료"){
         document.write(`<div class="ingredient">`);
@@ -197,7 +197,7 @@
     document.write(`</div>`);
 
     document.write(` <div class="information-recipe-ingredient-2">`);
-    document.write(`<div class="information-recipe-ingredient-2-1">(양념)</div>`);
+    document.write(`<div class="information-recipe-ingredient-2-1">(부재료)</div>`);
 
     material.map((v,i)=>{
       if(v['recipe_code']==r_code && (v['Material_type']== "양념"||v['Material_type']== "부재료")){
@@ -209,7 +209,7 @@
     });
     document.write(`</div>`);
     document.write(`</div>`);
-    
+
     document.write(`</div>`);
 
     document.write(`<div class="container information-recipe-process">`);
