@@ -58,4 +58,34 @@
     text-align: center;
     margin: 5px;
   }
+  .mix{
+    width:740px;
+    margin-top:30px;
+    text-align: right;
+  }
+  .mix_button{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
+    text-decoration: none;
+
+
+  }
+  .fixed-button{
+    display: inline-flex;
+    flex-direction: column;
+    position: fixed;
+    left:1400px;
+  }
+  .fixed-button-top,.fixed-button-bottom{
+
+    background-color:rgb(245, 245, 240);
+    text-align:center;
+    padding:10px;
+  }
+  .fixed-button-top a,.fixed-button-bottom a{
+    text-decoration: none;
+    color:black;
+  }
+
 </style>
