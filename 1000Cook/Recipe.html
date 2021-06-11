@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="kr" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="recipelist.css">
     <script type="text/javascript" src="recipelist.js"></script>
     <script type="text/javascript" src="recipe_data\recipe_info.json"></script>
+    <script type="text/javascript" src="recipe_data\recipe_material.json"></script>
       <script type="text/javascript" src="recipe_data\material_index.json"></script>
     <title>1000Cook</title>
   </head>
@@ -36,8 +37,8 @@
         <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">방법별</a></div>
     </div>
     <div class="menu-items"style="width:20%;">
-      <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
-      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
+      <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\statistic.png" style="width:30%; padding-top:-5px; "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">통계</a></div>
     </div>
   </div>
    </div>
@@ -46,19 +47,46 @@
  <div class="container Kind_recipe">
    <div class="Kind_recipe_menu">
      <script>
-     let sum=new Array(80);
-
-    for(let i=0; i<80; i++){sum[i]=0;}
-
+     let flag=new Array(80);
+     let selecteding = new Array(3);
+     let cnt = 0;
+      let result="";
+    for(let i=0; i<80; i++){flag[i]=0;}
      function select(idx){
        let ingredient = document.getElementsByClassName('ingrdients')[idx].innerHTML;
-       if(sum[idx]==0){
+
+       if(flag[idx]==0){
+         if(cnt>2){
+           alert("최대 3개까지 선택가능합니다.");
+           return 0;
+         }
          document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="yellow";
-         sum[idx]=1;
+         flag[idx]=1;
+         selecteding[cnt] = ingredient;
+         cnt++;
        }
        else{
         document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="white";
-        sum[idx]=0;
+        flag[idx]=0;
+        cnt--;
+       }
+     }
+     function ingredientselect(){
+       if(cnt==0){
+         alert("재료를 선택해주세요!");
+       }
+       else {
+
+         for(let i=0; i<80;i++){
+           if(flag[i]==1){
+              result += document.getElementsByClassName('ingrdients')[i].innerHTML;
+              result +="|";
+
+           }
+         }
+        result=result.slice(0,-1);
+         alert(result);
+         location.href="Recipe"+result;
        }
      }
       index.map(function(v,i){
@@ -68,6 +96,11 @@
         document.write('</div>');
         document.write('</div>');
       });
+      document.write(`<div class="mix">`);
+      document.write(`<button type="button" class="mix_button" onclick="ingredientselect()">`);
+      document.write(`선택 완료`);
+      document.write(`</button>`);
+      document.write(`</div>`)
       document.write('</div>');
       document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
       document.write('</div>');
@@ -85,43 +118,73 @@
           <script>
           var path_name = window.location.pathname;
           var length = path_name.length;
-          var idx=  path_name.substring(7,length);
+          var input=  path_name.substring(7,length);
+          var code = new Array(5000);
+          var cnt2=0;
           var a = info.length/60;
           var b = info.map.length % 60;
+          if(isNaN(input)){
+            var ing = decodeURI(input).split("|");
+            material.map(function(v,i){
+              for(var i=0; i<3;i++){
+                if(ing[i]==null) break;
+                if(v['Material_name']==ing[i]){
+                  code[cnt2++]=v['recipe_code'];
+                }
+              }
+            });
+            info.map(function(v,i){
+              for(var i=0;i<cnt2;i++){
+                  if(v['recipe_code']==code[i]){
+                    document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
+                    document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
+                    document.write('<div class="Recipe_info">');
+                    document.write('<h2>'+v['recipe_name']+'</h2>');
+                    document.write('<p>'+v['recipe_intro']+' </p>');
+                    document.write('</div>');
+                    document.write('</div>');
+                  }
 
-          info.map(function(v,i){
-            if(i>=(idx-1)*60&&i<idx*60){
-              document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
-              document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
-              document.write('<div class="Recipe_info">');
-              document.write('<h2>'+v['recipe_name']+'</h2>');
-              document.write('<p>'+v['recipe_intro']+' </p>');
-              document.write('</div>');
-              document.write('</div>');
-            }
-            else if(idx==0&&i>=0&&i<60) {
-              document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
-              document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
-              document.write('<div class="Recipe_info">');
-              document.write('<h2>'+v['recipe_name']+'</h2>');
-              document.write('<p>'+v['recipe_intro']+' </p>');
-              document.write('</div>');
-              document.write('</div>');
-            }
-            })
-          document.write('</div>')
-          document.write('<div class="container bg3-1" id ="index" style="padding:0px">')
-          if(b==0){
-            for(var i=1;i<=a;i++){
-              document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
-            }
+              }
+
+            });
           }
-          else {
-            for(var i=1;i<=a+1;i++){
-              document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
+          else{
+            info.map(function(v,i){
+              if(i>=(input-1)*60&&i<input*60){
+                document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
+                document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
+                document.write('<div class="Recipe_info">');
+                document.write('<h2>'+v['recipe_name']+'</h2>');
+                document.write('<p>'+v['recipe_intro']+' </p>');
+                document.write('</div>');
+                document.write('</div>');
+              }
+              else if(input==0&&i>=0&&i<60) {
+                document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
+                document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
+                document.write('<div class="Recipe_info">');
+                document.write('<h2>'+v['recipe_name']+'</h2>');
+                document.write('<p>'+v['recipe_intro']+' </p>');
+                document.write('</div>');
+                document.write('</div>');
+              }
+              })
+            document.write('</div>')
+            document.write('<div class="container bg3-1" id ="index" style="padding:0px">')
+            if(b==0){
+              for(var i=1;i<=a;i++){
+                document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
+              }
             }
+            else {
+              for(var i=1;i<=a+1;i++){
+                document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
+              }
+            }
+            document.write('</div>');
           }
-          document.write('</div>');
+
           </script>
       </div>
     </script>
