@@ -1,5 +1,4 @@
 const express = require('express');
-const hbs = require("express-handlebars");
 
 const server = express();
 
@@ -25,6 +24,7 @@ server.get("/recipe-grid", (req,res)=>{
 server.use((req,res)=> {
   var str = "/recipe_enter";
   var str2 = "/Recipe";
+  var str3 = "/recipe-grid"
   if(req.url.indexOf(str)!=-1){
     var _url = req.url;
     var length = _url.length;
@@ -37,6 +37,13 @@ server.use((req,res)=> {
     var idx = _url.substring(7,length);
     console.log(idx);
     res.sendFile(__dirname+str2+".html");
+  }
+  else if(req.url.indexOf(str3)!=-1){
+    var _url = req.url;
+    var length = _url.length;
+    var idx = _url.substring(12,length);
+    console.log(idx);
+    res.sendFile(__dirname+str3+".html");
   }
   else{
     res.sendFile(__dirname+"/404.html");

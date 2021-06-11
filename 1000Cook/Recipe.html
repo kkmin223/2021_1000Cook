@@ -46,10 +46,21 @@
  <div class="container Kind_recipe">
    <div class="Kind_recipe_menu">
      <script>
-      function select(idx){
-        let ingredient = document.getElementsByClassName('ingrdients')[idx].innerHTML;
-        alert(ingredient);
-      }
+     let sum=new Array(80);
+
+    for(let i=0; i<80; i++){sum[i]=0;}
+
+     function select(idx){
+       let ingredient = document.getElementsByClassName('ingrdients')[idx].innerHTML;
+       if(sum[idx]==0){
+         document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="yellow";
+         sum[idx]=1;
+       }
+       else{
+        document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="white";
+        sum[idx]=0;
+       }
+     }
       index.map(function(v,i){
         document.write(`<div class="recipe_kind_item_" onclick="select('${i}')">`);
         document.write('<div class="kind-item_info">');
@@ -83,7 +94,7 @@
               document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
               document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
               document.write('<div class="Recipe_info">');
-              document.write('<h2>'+v['recipe_name']+idx+'</h2>');
+              document.write('<h2>'+v['recipe_name']+'</h2>');
               document.write('<p>'+v['recipe_intro']+' </p>');
               document.write('</div>');
               document.write('</div>');
@@ -92,7 +103,7 @@
               document.write(`<div class="Recipe_item" onclick="location.href='recipe_enter${v['recipe_code']}'">`);
               document.write('<div class="Recipe_img"><img class="img-responsive food_img" src="'+v['imge_url']+'"></div>');
               document.write('<div class="Recipe_info">');
-              document.write('<h2>'+v['recipe_name']+idx+'</h2>');
+              document.write('<h2>'+v['recipe_name']+'</h2>');
               document.write('<p>'+v['recipe_intro']+' </p>');
               document.write('</div>');
               document.write('</div>');
@@ -102,7 +113,7 @@
           document.write('<div class="container bg3-1" id ="index" style="padding:0px">')
           if(b==0){
             for(var i=1;i<=a;i++){
-              document.write('<a href="#" id="index">'+i+'</a>');
+              document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
             }
           }
           else {
