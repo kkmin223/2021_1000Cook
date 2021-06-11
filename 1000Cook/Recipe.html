@@ -330,15 +330,15 @@
               }
               })
             document.write('</div>')
-            document.write('<div class="container bg3-1" id ="index" style="padding:0px">')
+            document.write('<div id ="index">')
             if(b==0){
               for(var i=1;i<=a;i++){
-                document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
+                document.write('<a href="Recipe'+i+'" class="indexnum" style="margin-right:5px">'+i+'</a>');
               }
             }
             else {
               for(var i=1;i<=a+1;i++){
-                document.write('<a href="Recipe'+i+'" id="index">'+i+'</a>');
+                document.write('<a href="Recipe'+i+'" clss="indexnum" style="margin-right:5px">'+i+'</a>');
               }
             }
             document.write('</div>');

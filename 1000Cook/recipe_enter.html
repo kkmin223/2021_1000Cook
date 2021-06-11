@@ -156,9 +156,6 @@
       if(v['recipe_code']==r_code){
         document.write(`<div class="container information" >`);
         document.write(`<div class="information-name">${v['recipe_name']}</div>`);
-        document.write(`<div class="commend">`);
-        document.write(`<button type="buton" id="recommend">추천</button>`);
-        document.write(`</div>`);
         document.write(`</div>`);
 
         document.write(`<div class="container informations" style="padding:0px; background-color:rgb(245, 245, 240)">`);
@@ -173,8 +170,6 @@
         document.write(`<div class=" b information-recipe-explain-time">조리시간: ${v['cooktime']}</div>`);
         document.write(`<div class=" b information-recipe-explain-much">분량: ${v['amount']}</div>`);
         document.write(`<div class=" b information-recipe-explain-diff">난이도: ${v['difficulty']}</div>`);
-        document.write(`<div class=" b information-recipe-explain-commend">추천수: ${v['rec_cnt']}</div>`);
-        document.write(`<div class=" b information-recipe-explain-define">정의:</div>`);
         document.write(`</div>`);
         document.write(`</div>`);
         document.write(`</div>`);
