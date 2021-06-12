@@ -20,7 +20,6 @@
     <title>1000Cook</title>
   </head>
   <body>
-
     <div class="container-fluid z">
 <div class=" container header" id="header">
   <div class="logo" style="width:20%">
@@ -41,7 +40,7 @@
     </div>
     <div class="menu-items"style="width:20%;">
       <div class="menu-items-pic1 text-center" style="height:60%; margin-bottom:0px; margin-top:8px;"><img src="pic\statistic.png" style="width:30%; padding-top:-5px; "></div>
-      <div class="menu-items-exp text-center"style="height:40%; padding-bottom:30px;"><a href="carousel.html">통계</a></div>
+      <div class="menu-items-exp text-center"style="height:40%; padding-bottom:30px;"><a href="main.html">통계</a></div>
     </div>
     <script>
 
@@ -66,61 +65,10 @@ function how_show(){
   else {document.getElementById("hows").style.display="none"; how_status--;
 }
 }
-  </script>
+    </script>
   </div>
    </div>
  </div>
- <div id="carousel-example-generic" class="carousel slide carousel-fade  text-center" data-ride="carousel">
-   <ol class="carousel-indicators">
-       <li data-bs-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-       <li data-bs-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-bs-target="#carousel-example-generic" data-slide-to="2"></li>
-         <li data-bs-target="#carousel-example-generic" data-slide-to="3"></li>
-   </ol>
-   <div class="carousel-inner" role="listbox">
-     <div class="item active">
-       <img src="pic\carousel1.jpg" style="width:100%; height:100%;">
-     </div>
-     <div class="item">
-       <img src="pic\carousel2.jpg" style="width:100%; height:100%;">
-   </div>
-   <div class="item">
-     <img src="pic\carousel3.jpg"  style="width:100%; height:100%;">
- </div>
- <div class="item">
-   <img src="pic\carousel4.jpg" style="width:100%; height:100%;">
-</div>
-</div>
-<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-<!-- 왼쪽 화살표 -->
-<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-</a>
-<!-- 오른쪽 화살표 버튼 -->
-<!-- href는 carousel의 id를 가르킨다. -->
-<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-<!-- 오른쪽 화살표 -->
-<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-</a>
-
-</div>
-
-<script>
-$(function(){
-// 이미지 슬라이드 컨트롤를 사용하기 위해서는 carousel를 실행해야한다.
-$('#carousel-example-generic').carousel({
-// 슬리아딩 자동 순환 지연 시간
-// false면 자동 순환하지 않는다.
-interval: 3000,
-// hover를 설정하면 마우스를 가져대면 자동 순환이 멈춘다.
-pause: "hover",
-// 순환 설정, true면 1 -> 2가면 다시 1로 돌아가서 반복
-wrap: true,
-// 키보드 이벤트 설정 여부(?)
-keyboard : true
-});
-});
-</script>
-
  <!-- 재료선택 -->
  <div class="container Kind_recipe" id="kinds">
    <div class="Kind_recipe_menu">
@@ -162,6 +110,42 @@ keyboard : true
 
       </script>
    </div>
+
+<div id="carousel-example-generic" class="carousel slide carousel-fade  text-center" data-ride="carousel">
+   <ol class="carousel-indicators">
+       <li data-bs-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+       <li data-bs-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-bs-target="#carousel-example-generic" data-slide-to="2"></li>
+         <li data-bs-target="#carousel-example-generic" data-slide-to="3"></li>
+   </ol>
+   <div class="carousel-inner" role="listbox">
+     <div class="item active">
+       <img src="pic\carousel1.jpg" style="width:100%; height:100%;">
+     </div>
+     <div class="item">
+       <img src="pic\carousel2.jpg" style="width:100%; height:100%;">
+   </div>
+   <div class="item">
+     <img src="pic\carousel3.jpg"  style="width:100%; height:100%;">
+ </div>
+ <div class="item">
+   <img src="pic\carousel4.jpg" style="width:100%; height:100%;">
+</div>
+</div>
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<!-- 왼쪽 화살표 -->
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+</a>
+<!-- 오른쪽 화살표 버튼 -->
+<!-- href는 carousel의 id를 가르킨다. -->
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<!-- 오른쪽 화살표 -->
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+</a>
+
+</div>
+
+
    <div class="container Kind_recipe" id="materials">
      <div class="Kind_recipe_menu">
        <script>
