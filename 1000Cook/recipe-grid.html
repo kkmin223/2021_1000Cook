@@ -16,16 +16,15 @@
       <script type="text/javascript" src="recipe_data\material_index.json"></script>
       <script type="text/javascript" src="recipe_data\recipe_kind.json"></script>
       <script type="text/javascript" src="recipe_data\recipe_how.json"></script>
-
     <title>1000Cook</title>
   </head>
   <body>
     <div class="container-fluid z">
-<div class=" container header" id="header">
-  <div class="logo" style="width:20%">
-    <img src="pic\1000Cook_.png" style="width:75%;">
-  </div>
-  <div class="menu"style="width:60%">
+    <div class=" container header" id="header">
+    <div class="logo" style="width:20%">
+    <a href="Recipe"><img src="pic\1000Cook_.png" style="width:75%;"></a>
+    </div>
+    <div class="menu"style="width:60%">
     <div class="menu-items"style="width:20%" onclick="kind_show()">
       <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
       <div class="menu-items-exp text-center"style="height:40%"><a onclick="kind_show">종류별</a></div>
@@ -52,45 +51,65 @@
       if(kind_status==0){document.getElementById("kinds").style.display="block";document.getElementById("hows").style.display="none"; kind_status++; document.getElementById("materials").style.display="none";}
       else {document.getElementById("kinds").style.display="none"; kind_status--;
     }
-  }
-  function material_show(){
+    }
+    function material_show(){
 
     if(material_status==0){document.getElementById("materials").style.display="block" ;document.getElementById("kinds").style.display="none"; document.getElementById("hows").style.display="none";material_status++;}
     else {document.getElementById("materials").style.display="none"; material_status--;
-  }
-}
-function how_show(){
+    }
+    }
+    function how_show(){
 
-  if (how_status==0){document.getElementById("hows").style.display="block";document.getElementById("kinds").style.display="none"; how_status++;document.getElementById("materials").style.display="none";}
-  else {document.getElementById("hows").style.display="none"; how_status--;
-}
-}
+    if (how_status==0){document.getElementById("hows").style.display="block";document.getElementById("kinds").style.display="none"; how_status++;document.getElementById("materials").style.display="none";}
+    else {document.getElementById("hows").style.display="none"; how_status--;
+    }
+    }
     </script>
-  </div>
-   </div>
- </div>
+    </div>
+    </div>
+    </div>
+
+
  <!-- 재료선택 -->
  <div class="container Kind_recipe" id="kinds">
    <div class="Kind_recipe_menu">
      <script>
+     <!--음식종류 -->
       let sum=new Array(80);
-
-
+      let cnt = 0;
+      let result="";
        for(let i=0; i<80; i++){sum[i]=0;}
-
-
         function select1(idx){
-
           if(sum[idx]==0){
+            if(cnt!=0){
+              alert("1개만 선택해주세요");
+              return 0;
+            }
             document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="yellow";
+            cnt=1;
             sum[idx]=1;
           }
           else{
            document.getElementsByClassName('recipe_kind_item_')[idx].style.backgroundColor="white";
            sum[idx]=0;
+           cnt=0;
           }
         }
-
+        function kindselect(){
+          if(cnt==0){
+            alert("하나만 선택해주세요!");
+          }
+          else {
+            for(let i=0;i<7;i++){
+              if(sum[i]==1){
+                result= document.getElementsByClassName('kind_')[i].innerHTML
+                break;
+              }
+            }
+            alert(result);
+            location.href="Recipe"+"knd"+result;
+          }
+        }
         kind.map(function(v,i){
           document.write(`<div class="recipe_kind_item_" onclick="select1('${i}')">`);
           document.write('<div class="kind-item_info">');
@@ -98,114 +117,108 @@ function how_show(){
           document.write('</div>');
           document.write('</div>');
         });
-
       document.write(`<div class="mix">`);
-      document.write(`<button type="button" class="mix_button ">`);
+      document.write(`<button type="button" class="mix_button" onclick="kindselect()">`);
       document.write(`선택 완료`);
       document.write(`</button>`);
       document.write(`</div>`)
       document.write('</div>');
       document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
       document.write('</div>');
-
       </script>
    </div>
-
-<div id="carousel-example-generic" class="carousel slide carousel-fade  text-center" data-ride="carousel">
-   <ol class="carousel-indicators">
-       <li data-bs-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-       <li data-bs-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-bs-target="#carousel-example-generic" data-slide-to="2"></li>
-         <li data-bs-target="#carousel-example-generic" data-slide-to="3"></li>
-   </ol>
-   <div class="carousel-inner" role="listbox">
-     <div class="item active">
-       <img src="pic\carousel1.jpg" style="width:100%; height:100%;">
-     </div>
-     <div class="item">
-       <img src="pic\carousel2.jpg" style="width:100%; height:100%;">
-   </div>
-   <div class="item">
-     <img src="pic\carousel3.jpg"  style="width:100%; height:100%;">
- </div>
- <div class="item">
-   <img src="pic\carousel4.jpg" style="width:100%; height:100%;">
-</div>
-</div>
-<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-<!-- 왼쪽 화살표 -->
-<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-</a>
-<!-- 오른쪽 화살표 버튼 -->
-<!-- href는 carousel의 id를 가르킨다. -->
-<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-<!-- 오른쪽 화살표 -->
-<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-</a>
-
-</div>
-
-
    <div class="container Kind_recipe" id="materials">
      <div class="Kind_recipe_menu">
        <script>
-
-       let sum1=new Array(80);
-         for(let i=0; i<80; i++){sum1[i]=0;}
-
-
+        <!--재료 -->
+        let sum1=new Array(80);
+        let cnt1 = 0;
+        let result1="";
+        for(let i=0; i<80; i++){sum1[i]=0;}
           function select2(idx){
-
-            if(sum1[idx]==0){
-              document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="yellow";
-              sum1[idx]=1;
-            }
-            else{
-             document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="white";
-             sum1[idx]=0;
-            }
+                if(sum[idx]==0){
+                  if(cnt1>2){
+                    alert("최대 3개까지 선택가능합니다.");
+                    return 0;
+                  }
+                  document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="yellow";
+                  sum1[idx]=1;
+                  cnt1++;
+                }
+              else{
+                document.getElementsByClassName('recipe_kind_item_1')[idx].style.backgroundColor="white";
+                sum1[idx]=0;
+                cnt1--;
+              }
           }
+          function ingredientselect(){
+            if(cnt1==0){
+              alert("재료를 선택해주세요!");
+            }
+            else {
 
-          index.map(function(v,i){
+            for(let i=0; i<80;i++){
+              if(sum1[i]==1){
+                result1 += document.getElementsByClassName('ingrdients1')[i].innerHTML;
+                result1 +="|";
+              }
+            }
+            result1=result1.slice(0,-1);
+            alert(result1);
+            location.href="Recipe"+"ing"+result1;
+      }
+    }
+        index.map(function(v,i){
        document.write(`<div class="recipe_kind_item_1" onclick="select2('${i}')">`);
        document.write('<div class="kind-item_info">');
        document.write('<h2 style="margin-top:6px;" class="ingrdients1">'+v['name']+'</h2>');
        document.write('</div>');
        document.write('</div>');
      });
-
         document.write(`<div class="mix">`);
-        document.write(`<button type="button" class="mix_button ">`);
+        document.write(`<button type="button" class="mix_button" onclick="ingredientselect()">`);
         document.write(`선택 완료`);
         document.write(`</button>`);
         document.write(`</div>`)
         document.write('</div>');
         document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
         document.write('</div>');
-
         </script>
      </div>
      <div class="container Kind_recipe" id="hows">
        <div class="Kind_recipe_menu">
          <script>
-
+         <!--방식 -->
           let sum2=new Array(80);
+          let cnt2 = 0;
+          let result2="";
            for(let i=0; i<80; i++){sum2[i]=0;}
-
-
             function select3(idx){
-
-
               if(sum2[idx]==0){
+                if(cnt2==1){
+                  alert("하나만 선택해주세요");
+                  return 0;
+                }
                 document.getElementsByClassName('recipe_kind_item2_')[idx].style.backgroundColor="yellow";
                 sum2[idx]=1;
+                cnt2=1;
               }
               else{
                document.getElementsByClassName('recipe_kind_item2_')[idx].style.backgroundColor="white";
                sum2[idx]=0;
+               cnt2=0;
               }
             }
-
+            function selecthow(){
+              for(let i=0;i<21;i++){
+                if(sum2[i]==1){
+                  result2=  document.getElementsByClassName('ingrdients2')[i].innerHTML;
+                  break;
+                }
+              }
+              alert(result2);
+              location.href="Recipe"+"how"+result2;
+            }
           how.map(function(v,i){
          document.write(`<div class="recipe_kind_item2_" onclick="select3('${i}')">`);
          document.write('<div class="kind-item_info">');
@@ -213,18 +226,49 @@ function how_show(){
          document.write('</div>');
          document.write('</div>');
        });
-
           document.write(`<div class="mixs">`);
-          document.write(`<button type="button" class="mix_button ">`);
+          document.write(`<button type="button" class="mix_button" onclick="selecthow()">`);
           document.write(`선택 완료`);
           document.write(`</button>`);
           document.write(`</div>`)
           document.write('</div>');
           document.write('<div class="container bg3-1" id ="index" style="padding:0px">');
           document.write('</div>');
-
           </script>
        </div>
+      <div id="carousel-example-generic" class="carousel slide carousel-fade  text-center" data-ride="carousel">
+         <ol class="carousel-indicators">
+             <li data-bs-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+             <li data-bs-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-bs-target="#carousel-example-generic" data-slide-to="2"></li>
+               <li data-bs-target="#carousel-example-generic" data-slide-to="3"></li>
+         </ol>
+         <div class="carousel-inner" role="listbox">
+           <div class="item active">
+             <img src="pic\carousel1.jpg" style="width:100%; height:100%;">
+           </div>
+           <div class="item">
+             <img src="pic\carousel2.jpg" style="width:100%; height:100%;">
+         </div>
+         <div class="item">
+           <img src="pic\carousel3.jpg"  style="width:100%; height:100%;">
+       </div>
+       <div class="item">
+         <img src="pic\carousel4.jpg" style="width:100%; height:100%;">
+      </div>
+      </div>
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <!-- 왼쪽 화살표 -->
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <!-- 오른쪽 화살표 버튼 -->
+      <!-- href는 carousel의 id를 가르킨다. -->
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <!-- 오른쪽 화살표 -->
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>
+
+      </div>
  <!-- 레시피 출력형태 변환 -->
       <div class="container bg3-1" id ="Recipe_list" style="padding:0px">
         <div class="container" id="list_btn">
@@ -277,8 +321,8 @@ function how_show(){
               document.write('<p class="recipe_much_data">'+v['amount']+'</p>');
               document.write('<p class=recipe_diff>난이도</p>');
               document.write('<p class="recipe_diff_data">'+v['difficulty']+'</p>');
-              document.write('<p class=recipe_good>추천수</p>');
-              document.write('<p class="recipe_good_data">'+v['rec_cnt']+'</p>');
+              document.write('<p class=recipe_good></p>');
+              document.write('<p class="recipe_good_data">'+'</p>');
               document.write('</div>');
               document.write('</div>');
               document.write('</div>');
@@ -310,8 +354,8 @@ function how_show(){
               document.write('<p class="recipe_much_data">'+v['amount']+'</p>');
               document.write('<p class=recipe_diff>난이도</p>');
               document.write('<p class="recipe_diff_data">'+v['difficulty']+'</p>');
-              document.write('<p class=recipe_good>추천수</p>');
-              document.write('<p class="recipe_good_data">'+v['rec_cnt']+'</p>');
+              document.write('<p class=recipe_good></p>');
+              document.write('<p class="recipe_good_data">'+'</p>');
               document.write('</div>');
               document.write('</div>');
               document.write('</div>');

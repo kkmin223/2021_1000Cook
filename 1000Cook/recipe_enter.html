@@ -103,45 +103,59 @@
     </style>
   </head>
   <body>
-    <div class="container-fluid z">
-    <div class=" container header">
+
+      <div class="container-fluid z">
+      <div class=" container header" id="header">
       <div class="logo" style="width:20%">
-        <img src="pic\1000Cook_.png" style="width:75%;">
+      <a href="Recipe"><img src="pic\1000Cook_.png" style="width:75%;"></a>
       </div>
       <div class="menu"style="width:60%">
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
-            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
-        </div>
+      <div class="menu-items"style="width:20%" onclick="kind_show()">
+        <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+        <div class="menu-items-exp text-center"style="height:40%"><a onclick="kind_show">종류별</a></div>
       </div>
-      <div class="log"style="width:20%;">
-        <div class="login_reg">
-          <div class="login">
-            <a href="login.html">로그인</a>
-          </div>
-          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
-          <div class="register">
-            <a href="register.html">회원가입</a>
-          </div>
-        </div>
-        <div class="pic">
-          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
-        </div>
-        </div>
-       </div>
-     </div>
+      <div class="menu-items"style="width:20%;"onclick="material_show()">
+        <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+        <div class="menu-items-exp text-center"style="height:40%"><a onclick="material_show">재료별</a></div>
+      </div>
+      <div class="menu-items"style="width:20%;"onclick="how_show()">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30%  "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a >방법별</a></div>
+      </div>
+      <div class="menu-items"style="width:20%;">
+        <div class="menu-items-pic1 text-center" style="height:60%; margin-bottom:0px; margin-top:8px;"><img src="pic\statistic.png" style="width:30%; padding-top:-5px; "></div>
+        <div class="menu-items-exp text-center"style="height:40%; padding-bottom:30px;"><a href="main.html">통계</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+kind_status=0;
+material_status=0;
+how_status=0;
+function kind_show(){
+
+  if(kind_status==0){document.getElementById("kinds").style.display="block";document.getElementById("hows").style.display="none"; kind_status++; document.getElementById("materials").style.display="none";}
+  else {document.getElementById("kinds").style.display="none"; kind_status--;
+}
+}
+function material_show(){
+
+if(material_status==0){document.getElementById("materials").style.display="block" ;document.getElementById("kinds").style.display="none"; document.getElementById("hows").style.display="none";material_status++;}
+else {document.getElementById("materials").style.display="none"; material_status--;
+}
+}
+function how_show(){
+
+if (how_status==0){document.getElementById("hows").style.display="block";document.getElementById("kinds").style.display="none"; how_status++;document.getElementById("materials").style.display="none";}
+else {document.getElementById("hows").style.display="none"; how_status--;
+}
+}
+</script>
+
+
+
     <script>
     var path_name = window.location.pathname;
     var length = path_name.length;
@@ -156,9 +170,6 @@
       if(v['recipe_code']==r_code){
         document.write(`<div class="container information" >`);
         document.write(`<div class="information-name">${v['recipe_name']}</div>`);
-        document.write(`<div class="commend">`);
-        document.write(`<button type="buton" id="recommend">추천</button>`);
-        document.write(`</div>`);
         document.write(`</div>`);
 
         document.write(`<div class="container informations" style="padding:0px; background-color:rgb(245, 245, 240)">`);
@@ -173,8 +184,6 @@
         document.write(`<div class=" b information-recipe-explain-time">조리시간: ${v['cooktime']}</div>`);
         document.write(`<div class=" b information-recipe-explain-much">분량: ${v['amount']}</div>`);
         document.write(`<div class=" b information-recipe-explain-diff">난이도: ${v['difficulty']}</div>`);
-        document.write(`<div class=" b information-recipe-explain-commend">추천수: ${v['rec_cnt']}</div>`);
-        document.write(`<div class=" b information-recipe-explain-define">정의:</div>`);
         document.write(`</div>`);
         document.write(`</div>`);
         document.write(`</div>`);

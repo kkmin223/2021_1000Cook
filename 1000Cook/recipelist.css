@@ -87,5 +87,12 @@
     text-decoration: none;
     color:black;
   }
-
+#index {
+  color:black;
+  margin:10px;
+}
+.indexnum{
+  color:black;
+  margin:10px;
+}
 </style>
