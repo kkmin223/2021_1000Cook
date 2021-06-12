@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="Viewport" user-scalable="no" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main1.css">
+    <link rel="stylesheet" type="text/css" href="recipelist.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>1000Cook</title>
+   <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+     google.charts.setOnLoadCallback(drawChart2);
+     google.charts.setOnLoadCallback(drawChart3);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['난이도별', '갯수'],
+          ['매우쉬움', 273],
+          ['보통', 239],
+          ['어려움', 25]
+        ]);
+
+        var options = {
+          chart: {
+            title: '난이도별 차트',
+            subtitle: '난이도 종류: 매우쉬움 , 보통 , 어려움',
+          },
+		  
+        legend : {
+         position : 'none'
+         }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('drawChart_div'));
+        chart.draw(data,options);
+      }
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['종류별', '갯수'],
+          ['동남아시아', 3],
+          ['서양', 43],
+          ['이탈리아', 13],
+        ['일본', 25],
+        ['중국', 27],
+        ['퓨전', 41],
+        ['한식', 385]
+        ]);
+
+        var options = {
+          chart: {
+            title: '종류별 차트',
+            subtitle: '종류: 동남아시아 , 서양 , 이탈리아, 일본,중국,.퓨전,한식',
+          },
+		  colors: ['black'],
+        legend : {
+         position : 'none'
+         }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('drawChart2_div'));
+        chart.draw(data,options);
+      }
+     
+     function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['시간별', '갯수'],
+          ['0~20분', 90],
+          ['21~40분', 362],
+          ['41~60분', 74],
+        ['61분~', 11]
+        ]);
+
+        var options = {
+          chart: {
+            title: '시간대별 차트',
+            subtitle: '시간 : 0~20분 , 21~40분 , 41~60분, 60분~',
+			is3D:true
+          },
+		  colors: ['black'],
+        legend : {
+         position : 'none'
+         }
+        };
+		
+		
+        var chart = new google.visualization.BarChart(document.getElementById('drawChart3_div'));
+        chart.draw(data,options);
+      }
+    </script>
+    <style>
+    body{
+      background-color:rgb(245, 245, 240);
+    }
+    .z{
+      background-color: white;
+    }
+    .header{
+      background-color: white;
+      height:120px;
+      font:italic;
+    }
+    .container-fluid{
+        border-bottom:1px solid rgb(29,32,136);
+    }
+    .logo{
+      margin-top:10px;
+    }
+      .header{
+        display: flex;
+      }
+      .menu{
+        display:flex;
+      }
+      .menu-items{
+        padding-left:10px;
+        padding-right:10px;
+        font-weight:bold;
+        font-size:20px;
+        font:italic;
+      }
+      .menu-items1{
+        font-weight:bold;
+        font-size:20px;
+      }
+      .menu-items1 a{
+        color:rgb(29,32,136);
+      }
+      .menu-items-pic{
+        margin-top:10px;
+        padding-top:25px;
+      }
+      .menu-items-pic1{
+        padding-top:20px;
+        margin-bottom: 9px;
+      }
+      .menu-items-exp{
+      }
+      .menu-items-exp a{
+        text-decoration:none;
+        color:rgb(29,32,136);
+      }
+      .login_reg{
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .log{
+        margin-top:30px;
+        margin-left:20px;
+
+      }
+      .login_reg a{
+        text-decoration: none;
+        color:rgb(29,32,136);
+        font-weight:bold;
+        font-size:14px;
+        font:italic;
+      }
+      .pic{
+        margin-left:-9px;
+      }
+      .button-recipe{
+        background-color:rgb(29,32,136);
+        color:white;
+        padding:10px;
+      }
+      .button-recipe span{
+        text-decoration: none;
+      }
+      .searchs{
+        margin-top:20px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body >
+    <div class="container-fluid z" >
+    <div class=" container header">
+      <div class="logo" style="width:20%">
+        <img src="pic\1000Cook_.png" style="width:75%;">
+      </div>
+      <div class="menu"style="width:60%">
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
+            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
+        </div>
+        <div class="menu-items"style="width:20%;">
+          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
+          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
+        </div>
+      </div>
+      <div class="log"style="width:20%;">
+        <div class="login_reg">
+          <div class="login">
+            <a href="login.html">로그인</a>
+          </div>
+          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+          <div class="register">
+            <a href="register.html">회원가입</a>
+          </div>
+        </div>
+        <div class="pic" >
+          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
+        </div>
+        </div>
+       </div>
+     </div>
+
+         <div class="container bg3-1" id ="Recipe_list" >
+           <table class="columns" style="background-color:lightgreen;" >
+         <tr>
+            <td><div id="drawChart_div" style="width:350px; height:500px;border: 1px solid #ccc"></div></td>
+            <td><p style="font-size:30px; text-align:center;">1. VeryEasy : 273 <br /> 2. Normal : 239 <br /> 3. Diffecult : 25</p></td>
+            <td><div id="drawChart3_div" style="width:350px; height:500px; border: 1px solid #ccc"></div></td>
+            <tr>
+            <td><p style="font-size:30px; text-align:center; ">1. 한식 : 385 <br/>2. 퓨전 : 41 <br/>3. 중국 : 27 <br/>4. 일본 : 25 <br/>5. 이탈리아 : 13 <br/>6. 서양 : 43 <br/>7. 동남아시아 : 3</td><td><div id="drawChart2_div" style="width:350px; height:500px; border: 1px solid #ccc"></div></td><td><p style="font-size:30px; text-align:center;">1. 0~20분 : 90 <br /> 2. 21~40분 : 362 <br /> 3. 41~60분 : 74 <br />4. 61분~ : 11</p></td>
+            </tr>
+         </tr>
+   </table>
+   <table class="columns">
+         <footer style="background-color:skyblue; width:92.2%;">
+        <p style="font-size:30px; color:red;">Information</p>
+		<table style="background-color:skyblue; width:92.2%;">
+		<tr>
+		<td>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3201.889424724412!2d127.45415141562988!3d36.62904818501421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356528908c783763%3A0xcaf84252a899a885!2z7Lap67aB64yA7ZWZ6rWQIOqwnOyLoOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1623436647895!5m2!1sko!2skr" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		</td>
+		<td style="width:100%; height:100%;">
+        <ul style="font-size:20px; color:black;">
+			<li>수업명 : Web SoftWare</li>
+            <li>주제 : Food recipe Web</li>
+            <li>팀명 : Lilac</li>
+            <li>팀원 : KimKangMin, KimJuYeoup, KwonNakhyeon</li>
+            <li><a href='https://www.chungbuk.ac.kr/intro/index,jsp'>충북대학교 홈페이지</a></li>
+        </ul>
+		</td>
+		</tr>
+		</table>
+    </footer>
+     </div>
+  </body>
+</html>
