@@ -47,7 +47,6 @@
     text-align: center;
 }
 .recipe_much_data,.recipe_kind_data,.recipe_time_data,.recipe_diff_data,.recipe_good_data,.recipe_how_data{
-
     text-align: center;
 }
 .mix{
@@ -67,6 +66,7 @@
   flex-direction: column;
   position: fixed;
   left:1400px;
+  top:500px;
 }
 .fixed-button-top,.fixed-button-bottom{
 

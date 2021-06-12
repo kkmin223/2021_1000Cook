@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="recipelist.css">
     <link rel="stylesheet" type="text/css" href="recipe_enter.css">
+    <link rel="stylesheet" type="text/css" href="recipe-grid.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -103,7 +104,14 @@
     </style>
   </head>
   <body>
-
+    <div class="fixed-button">
+      <div class="fixed-button-top">
+        <a href="#header">Top</a>
+      </div>
+      <div class="fixed-button-bottom">
+      <a href="#footer">Bottom</a>
+      </div>
+    </div>
       <div class="container-fluid z">
       <div class=" container header" id="header">
       <div class="logo" style="width:20%">
@@ -218,9 +226,7 @@ else {document.getElementById("hows").style.display="none"; how_status--;
     });
     document.write(`</div>`);
     document.write(`</div>`);
-
     document.write(`</div>`);
-
     document.write(`<div class="container information-recipe-process">`);
 
     document.write(` <div class="how-to-make_title">조리과정</div>`);
