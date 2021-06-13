@@ -19,8 +19,9 @@ server.get("/recipe-grid", (req,res)=>{
   console.log(req.url);
   res.sendFile(__dirname+"/recipe-grid.html");
 });
-
-
+server.get("/statistics", (req,res)=>{
+  res.sendFile(__dirname+"/statics.html")
+})
 server.use((req,res)=> {
   var str = "/recipe_enter";
   var str2 = "/Recipe";

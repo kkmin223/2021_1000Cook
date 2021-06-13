@@ -6,7 +6,8 @@
 #first{
   margin-top:0px;
 }
-.recipe-list{
+#Recipe_items{
+    font-family: 'Do Hyeon', sans-serif;
 }
 
 .recipe-lists{
@@ -30,7 +31,18 @@
 .recipe_name,.recipe_ing,.recipe_time{
   font-weight: bold;
 }
-
+#header {
+  font-family: 'Jua', sans-serif;
+}
+.kind_ {
+  font-family: 'Jua', sans-serif;
+}
+.ingrdients1{
+  font-family: 'Jua', sans-serif;
+}
+.ingrdients2{
+  font-family: 'Jua', sans-serif;
+}
 .recipe-others{
   width:200px;%;
   display: flex;

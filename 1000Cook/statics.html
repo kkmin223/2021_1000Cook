@@ -33,7 +33,7 @@
             title: '난이도별 차트',
             subtitle: '난이도 종류: 매우쉬움 , 보통 , 어려움',
           },
-		  
+
         legend : {
          position : 'right'
          }
@@ -69,7 +69,7 @@
         var chart = new google.visualization.BarChart(document.getElementById('drawChart2_div'));
         chart.draw(data,options);
       }
-     
+
      function drawChart3() {
         var data = google.visualization.arrayToDataTable([
           ['시간별', '갯수'],
@@ -90,8 +90,8 @@
          position : 'right'
          }
         };
-		
-		
+
+
         var chart = new google.visualization.BarChart(document.getElementById('drawChart3_div'));
         chart.draw(data,options);
       }
@@ -182,45 +182,55 @@
     </style>
   </head>
   <body >
-    <div class="container-fluid z" >
-    <div class=" container header">
-      <div class="logo" style="width:20%">
-        <img src="pic\1000Cook_.png" style="width:75%;">
-      </div>
-      <div class="menu"style="width:60%">
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">레시피</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">커뮤니티</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-            <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30% "></div>
-            <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">마이페이지</a></div>
-        </div>
-        <div class="menu-items"style="width:20%;">
-          <div class="menu-items-pic1 text-center" style="height:60%"><img src="pic\github.png" style="width:100%; padding-top:-5px; "></div>
-          <div class="menu-items-exp text-center"style="height:40%"><a href="main.html">깃허브</a></div>
-        </div>
-      </div>
-      <div class="log"style="width:20%;">
-        <div class="login_reg">
-          <div class="login">
-            <a href="login.html">로그인</a>
-          </div>
-          <div class="space">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
-          <div class="register">
-            <a href="register.html">회원가입</a>
-          </div>
-        </div>
-        <div class="pic" >
-          <a href="#" class="button-recipe"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>게시글 추가하기</a>
-        </div>
-        </div>
-       </div>
-     </div>
+    <div class="container-fluid z">
+    <div class=" container header" id="header">
+    <div class="logo" style="width:20%">
+    <a href="Recipe"><img src="pic\1000Cook_.png" style="width:75%;"></a>
+    </div>
+    <div class="menu"style="width:60%">
+    <div class="menu-items"style="width:20%" onclick="kind_show()">
+      <div class="menu-items-pic text-center" style="height:60%"><img src="pic\recipe.png" style="width:30% "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a onclick="kind_show">종류별</a></div>
+    </div>
+    <div class="menu-items"style="width:20%;"onclick="material_show()">
+      <div class="menu-items-pic text-center" style="height:60%"><img src="pic\community.png" style="width:50% "></div>
+      <div class="menu-items-exp text-center"style="height:40%"><a onclick="material_show">재료별</a></div>
+    </div>
+    <div class="menu-items"style="width:20%;"onclick="how_show()">
+        <div class="menu-items-pic text-center" style="height:60%"><img src="pic\my_page.png" style="width:30%  "></div>
+        <div class="menu-items-exp text-center"style="height:40%"><a >방법별</a></div>
+    </div>
+    <div class="menu-items"style="width:20%;">
+      <div class="menu-items-pic1 text-center" style="height:60%; margin-bottom:0px; margin-top:8px;"><img src="pic\statistic.png" style="width:30%; padding-top:-5px; "></div>
+      <div class="menu-items-exp text-center"style="height:40%; padding-bottom:30px;"><a href="main.html">통계</a></div>
+    </div>
+    <script>
+
+    kind_status=0;
+    material_status=0;
+    how_status=0;
+    function kind_show(){
+
+      if(kind_status==0){document.getElementById("kinds").style.display="block";document.getElementById("hows").style.display="none"; kind_status++; document.getElementById("materials").style.display="none";}
+      else {document.getElementById("kinds").style.display="none"; kind_status--;
+    }
+    }
+    function material_show(){
+
+    if(material_status==0){document.getElementById("materials").style.display="block" ;document.getElementById("kinds").style.display="none"; document.getElementById("hows").style.display="none";material_status++;}
+    else {document.getElementById("materials").style.display="none"; material_status--;
+    }
+    }
+    function how_show(){
+
+    if (how_status==0){document.getElementById("hows").style.display="block";document.getElementById("kinds").style.display="none"; how_status++;document.getElementById("materials").style.display="none";}
+    else {document.getElementById("hows").style.display="none"; how_status--;
+    }
+    }
+    </script>
+    </div>
+    </div>
+    </div>
 
          <div class="container bg3-1" id ="Recipe_list" >
            <table class="columns" style="background-color:orange;" >
