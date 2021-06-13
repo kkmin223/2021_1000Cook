@@ -11,6 +11,9 @@
       <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
     <title>1000Cook</title>
    <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -179,6 +182,9 @@
         margin-top:20px;
         display: flex;
       }
+      #header {
+        font-family: 'Jua', sans-serif;
+      }
     </style>
   </head>
   <body >
@@ -210,7 +216,6 @@
     material_status=0;
     how_status=0;
     function kind_show(){
-
       if(kind_status==0){document.getElementById("kinds").style.display="block";document.getElementById("hows").style.display="none"; kind_status++; document.getElementById("materials").style.display="none";}
       else {document.getElementById("kinds").style.display="none"; kind_status--;
     }
@@ -233,29 +238,29 @@
     </div>
 
          <div class="container bg3-1" id ="Recipe_list" >
-           <table class="columns" style="background-color:orange;" >
+           <table class="columns" >
          <tr>
             <td><div id="drawChart_div" style="width:700px; height:500px;border: 1px solid #ccc"></div></td>
-            <td style="border: 1px solid black;"><p style="font-size:25px; text-align:center; color:white;">난이도별 레시피 분석 그래프 <br /><br /><br /><br /> 1. 매우쉬움 : 273개 <br /> 2. 보통 : 239개 <br/>3. 어려움 : 25개</p></td>
+            <td style="border: 1px solid black;"><p style="font-size:25px; text-align:center; ">난이도별 레시피 분석 그래프 <br /><br /><br /><br /> 1. 매우쉬움 : 273개 <br /> 2. 보통 : 239개 <br/>3. 어려움 : 25개</p></td>
             <tr>
 			<td><div id="drawChart2_div" style="width:700px; height:500px; border: 1px solid #ccc"></div></td>
-            <td style="border: 1px solid black; width:350px;"><p style="font-size:25px; text-align:center;color:white; ">종류별 레시피 분석 그래프 <br/><br/><br/> 1. 한식 : 385 <br/>2. 퓨전 : 41 <br/>3. 중국 : 27 <br/>4. 일본 : 25 <br/>5. 이탈리아 : 13 <br/>6. 서양 : 43 <br/>7. 동남아시아 : 3</td>
+            <td style="border: 1px solid black; width:350px;"><p style="font-size:25px; text-align:center; ">종류별 레시피 분석 그래프 <br/><br/><br/> 1. 한식 : 385 <br/>2. 퓨전 : 41 <br/>3. 중국 : 27 <br/>4. 일본 : 25 <br/>5. 이탈리아 : 13 <br/>6. 서양 : 43 <br/>7. 동남아시아 : 3</td>
             </tr>
 			<tr>
-			<td><div id="drawChart3_div" style="width:700px; height:500px; border: 1px solid #ccc "></div></td><td style="border: 1px solid black;"><p style="font-size:25px; text-align:center; color:white;">시간별 레시피 분석 그래프 <br/><br/><br/>1. 0~20분 : 90 <br /> 2. 21~40분 : 362 <br /> 3. 41~60분 : 74 <br />4. 61분~ : 11</p></td>
+			<td><div id="drawChart3_div" style="width:700px; height:500px; border: 1px solid #ccc "></div></td><td style="border: 1px solid black;"><p style="font-size:25px; text-align:center;">시간별 레시피 분석 그래프 <br/><br/><br/>1. 0~20분 : 90 <br /> 2. 21~40분 : 362 <br /> 3. 41~60분 : 74 <br />4. 61분~ : 11</p></td>
 			</td>
          </tr>
    </table>
    <table class="columns">
-         <footer style="background-color:skyblue; width:92.2%;">
-        <p style="font-size:30px; color:navy; padding:10px;">Information</p>
+    <footer style="background-color:skyblue; width:92.2%;">
+    <p style="font-size:30px; color:navy; padding:10px;">Information</p>
 		<table style="background-color:skyblue; width:92.2%;">
 		<tr>
 		<td>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3201.889424724412!2d127.45415141562988!3d36.62904818501421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356528908c783763%3A0xcaf84252a899a885!2z7Lap67aB64yA7ZWZ6rWQIOqwnOyLoOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1623436647895!5m2!1sko!2skr" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 		</td>
 		<td style="width:100%; height:100%;">
-        <ul style="font-size:20px; color:navy;">
+      <ul style="font-size:20px; color:navy;">
 			<li>수업명 : Web SoftWare</li>
             <li>주제 : Food recipe Web</li>
             <li>팀명 : Lilac</li>
