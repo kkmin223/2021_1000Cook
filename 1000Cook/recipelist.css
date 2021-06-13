@@ -12,7 +12,40 @@
     margin-top: 15px;
     margin-bottom: 15px;
     padding-right:30px;
+    position: relative;
+    -webkit-transform: translateX(0);
+    font-family: 'Do Hyeon', sans-serif;
+  }
+  .Recipe_item::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 0;
+    height: 0;
+    background: -webkit-linear-gradient(45deg, white 45%, #aaa 50%, #ccc 60%, white);
+    -webkit-transition-duration: 0.3s;
 
+  }
+  .Recipe_item:hover::before{
+    width: 35px;
+    height: 35px;
+  }
+  .detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    width: 250px;
+    height: 100%;
+    padding-top: 40px;
+    opacity: 0;
+    transition: 0.8s;
+    font-family: 'Do Hyeon', sans-serif;
+  }
+  .Recipe_item:hover .detail {
+    background-color:rgb(245, 245, 240);
+    opacity: 1;
   }
   .Recipe_info {
     width: 250px;
@@ -26,8 +59,7 @@
     position: top:0; left: 0;
     width: 100%;
     height: 100%;
-
-      border-radius: 10px;
+    border-radius: 10px;
   }
   .Recipe_img {
     width: 250px;
@@ -39,21 +71,27 @@
     transform: scale(1.2);
 
   }
-
-  .Recipe_item:hover {
-    transform: scale(1.1);
+  #header {
+    font-family: 'Jua', sans-serif;
   }
-
+  .kind_ {
+    font-family: 'Jua', sans-serif;
+  }
+  .ingrdients1{
+    font-family: 'Jua', sans-serif;
+  }
+  .ingrdients2{
+    font-family: 'Jua', sans-serif;
+  }
   #list_btn {
     text-align:right;
     font-size : 20px;
     padding-right: 50px;
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-  #index_number {
 
   }
+
   #index {
     text-align: center;
     margin: 5px;
@@ -67,8 +105,7 @@
     border-radius: 20px;
     padding: 10px;
     background-color: white;
-    text-decoration: none;
-
+    text-decoration: none
 
   }
   .fixed-button{
@@ -76,6 +113,7 @@
     flex-direction: column;
     position: fixed;
     left:1400px;
+    font-family: 'Do Hyeon', sans-serif;
   }
   .fixed-button-top,.fixed-button-bottom{
 
